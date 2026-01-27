@@ -9,7 +9,10 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Moments+</div>
+            <div class="logo">
+                <img src="images/icon/AppIconImage.png" alt="Moments+ Icon" class="logo-icon">
+                <span>Moments+</span>
+            </div>
             <div class="lang-switch">
                 <a href="index.html" class="active">EN</a>
                 <a href="index-zh.html">中文</a>
@@ -18,21 +21,60 @@
     </header>
     <main>
         <section class="hero">
+            <img src="images/icon/AppIconImage.png" alt="Moments+ App Icon" class="app-icon">
             <h1>Moments+</h1>
             <p class="tagline">Your moments, remembered</p>
             <p class="description">Transform your photo library into beautifully organized memories, automatically grouped by time and location.</p>
+            <a href="https://apps.apple.com/app/moments-plus" class="download-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download on App Store
+            </a>
         </section>
+
+        <section class="screenshots">
+            <div class="screenshot-scroll">
+                <div class="screenshot-item">
+                    <img src="images/onboarding/onboarding_auto_organization.jpg" alt="Automatic Organization">
+                    <p>Smart Organization</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/onboarding/onboarding_city_moments.jpg" alt="City Moments">
+                    <p>City Moments</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/onboarding/onboarding_map_explore.jpg" alt="Map Explorer">
+                    <p>Map Explorer</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/onboarding/onboarding_memory_notes.jpg" alt="Memory Notes">
+                    <p>Memory Notes</p>
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/onboarding/onboarding_moment_actions.jpg" alt="Moment Actions">
+                    <p>Quick Actions</p>
+                </div>
+            </div>
+        </section>
+
         <section class="features">
             <div class="feature">
-                <h3>📸 Automatic Organization</h3>
+                <div class="feature-icon">📸</div>
+                <h3>Automatic Organization</h3>
                 <p>Photos intelligently grouped into moments based on when and where they were taken.</p>
             </div>
             <div class="feature">
-                <h3>🗺️ Interactive Map</h3>
+                <div class="feature-icon">🗺️</div>
+                <h3>Interactive Map</h3>
                 <p>Explore your memories on a beautiful map. Rediscover forgotten places.</p>
             </div>
             <div class="feature">
-                <h3>🔒 Privacy First</h3>
+                <div class="feature-icon">📝</div>
+                <h3>Memory Notes</h3>
+                <p>Add personal notes to your moments. Capture the stories behind your photos.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
                 <p>All processing happens on your device. Your photos never leave your phone.</p>
             </div>
         </section>
