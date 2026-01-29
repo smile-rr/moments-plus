@@ -12,25 +12,35 @@ interface Props {
 const { screenshots } = Astro.props;
 ---
 
-<section class="screenshots-section py-32 px-4 md:px-8 relative overflow-hidden">
-  <!-- 柔和的背景渐变 -->
-  <div class="section-bg"></div>
-  
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="screenshots-container flex gap-8 md:gap-12 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide justify-center">
-      {screenshots.slice(0, 5).map((screenshot, index) => (
-        <div 
-          class="screenshot-item flex-shrink-0 snap-center"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <img 
-            src={screenshot.src} 
-            alt={screenshot.alt}
-            loading="lazy"
-            class="w-64 md:w-80 h-auto rounded-[32px] transition-transform duration-500 hover:scale-[1.02]"
-            style="box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);"
-          />
-        </div>
+<section class="screenshots-section py-24 md:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto relative">
+    <!-- Screenshots 容器 -->
+    <div class="screenshots-wrapper px-4 md:px-8">
+      <div class="screenshots-container" id="screenshots-scroll">
+        {screenshots.slice(0, 5).map((screenshot, index) => (
+          <div 
+            class="screenshot-item"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <img 
+              src={screenshot.src} 
+              alt={screenshot.alt}
+              loading="lazy"
+              class="screenshot-img"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- 指示器 -->
+    <div class="indicators" id="indicators">
+      {screenshots.slice(0, 5).map((_, index) => (
+        <button 
+          class={`indicator ${index === 0 ? 'active' : ''}`}
+          data-index={index}
+          aria-label={`Go to screenshot ${index + 1}`}
+        />
       ))}
     </div>
   </div>
@@ -38,19 +48,84 @@ const { screenshots } = Astro.props;
 
 <style>
   .screenshots-section {
-    background: linear-gradient(180deg, #f8f6f4 0%, #fafafa 50%, #f8f6f4 100%);
+    background: #fafafa;
   }
   
-  .section-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 40% at 30% 20%, rgba(255, 218, 185, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 30% at 70% 80%, rgba(230, 230, 250, 0.05) 0%, transparent 40%);
+  .screenshots-wrapper {
+    overflow: hidden;
+  }
+  
+  .screenshots-container {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 1rem 0 2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 隐藏滚动条 */
+  .screenshots-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .screenshots-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
   .screenshot-item {
+    flex-shrink: 0;
+    scroll-snap-align: center;
     animation: slideInUp 0.8s ease-out both;
+  }
+  
+  .screenshot-img {
+    width: 240px;
+    height: auto;
+    border-radius: 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+  }
+  
+  .screenshot-item:hover .screenshot-img {
+    transform: scale(1.02);
+  }
+  
+  @media (min-width: 768px) {
+    .screenshots-container {
+      gap: 2.5rem;
+    }
+    
+    .screenshot-img {
+      width: 280px;
+      border-radius: 32px;
+    }
+  }
+  
+  /* 指示器 */
+  .indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .indicator.active {
+    background: rgba(0, 0, 0, 0.4);
+    width: 24px;
+    border-radius: 4px;
   }
   
   @keyframes slideInUp {
@@ -63,13 +138,46 @@ const { screenshots } = Astro.props;
       transform: translateY(0);
     }
   }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
 </style>
+
+<script>
+  const container = document.getElementById('screenshots-scroll');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  if (container) {
+    // 指示器点击
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        const items = container.querySelectorAll('.screenshot-item');
+        if (items[index]) {
+          items[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      });
+    });
+    
+    // 滚动时更新指示器
+    container.addEventListener('scroll', () => {
+      const items = container.querySelectorAll('.screenshot-item');
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      
+      items.forEach((item, index) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.left + itemRect.width / 2;
+        const distance = Math.abs(containerCenter - itemCenter);
+        
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === closestIndex);
+      });
+    });
+  }
+</script>
