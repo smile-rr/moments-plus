@@ -39,6 +39,12 @@ export function getLocalizedPath(locale: Locale, path: string = ''): string {
   const cleanPath = path.replace(/^\//, '');
   // 移除语言前缀（如果存在）
   const pathWithoutLocale = cleanPath.replace(/^(en|zh|ja)\//, '');
+  
+  // 英文使用根路径，其他语言使用语言前缀
+  if (locale === DEFAULT_LOCALE) {
+    return `/${pathWithoutLocale}`.replace(/\/$/, '') || '/';
+  }
+  
   // 构建新路径
   return `/${locale}/${pathWithoutLocale}`.replace(/\/$/, '') || `/${locale}`;
 }
@@ -50,10 +56,12 @@ export function getLocaleFromUrl(url: URL): Locale {
   const segments = url.pathname.split('/').filter(Boolean);
   const firstSegment = segments[0];
   
-  if (firstSegment && SUPPORTED_LOCALES.includes(firstSegment as Locale)) {
+  // 检查第一个路径段是否是支持的语言（排除默认语言）
+  if (firstSegment && SUPPORTED_LOCALES.includes(firstSegment as Locale) && firstSegment !== DEFAULT_LOCALE) {
     return firstSegment as Locale;
   }
   
+  // 如果没有语言前缀，返回默认语言
   return DEFAULT_LOCALE;
 }
 

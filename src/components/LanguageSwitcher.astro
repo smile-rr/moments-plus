@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n';
-import { SUPPORTED_LOCALES, getLocaleName, getLocalizedPath } from '../i18n';
+import { SUPPORTED_LOCALES, getLocaleName, getLocalizedPath, DEFAULT_LOCALE } from '../i18n';
 
 interface Props {
   currentLang: Locale;
@@ -10,7 +10,15 @@ interface Props {
 const { currentLang, currentPath } = Astro.props;
 
 // 从当前路径中移除语言前缀，获取页面路径
-const pathWithoutLang = currentPath.replace(/^\/(en|zh|ja)/, '') || '/';
+let pathWithoutLang = currentPath;
+
+// 如果路径以非默认语言开头，移除语言前缀
+for (const locale of SUPPORTED_LOCALES) {
+  if (locale !== DEFAULT_LOCALE && currentPath.startsWith(`/${locale}`)) {
+    pathWithoutLang = currentPath.replace(`/${locale}`, '') || '/';
+    break;
+  }
+}
 ---
 
 <div class="language-switcher">

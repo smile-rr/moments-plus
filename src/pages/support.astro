@@ -1,30 +1,21 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SUPPORTED_LOCALES, type Locale, t } from '../../i18n';
-import { getSupportContent } from '../../utils/content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { DEFAULT_LOCALE, type Locale, t } from '../i18n';
+import { getSupportContent } from '../utils/content';
 
-export async function getStaticPaths() {
-  // 只为非默认语言生成路径
-  return SUPPORTED_LOCALES
-    .filter(lang => lang !== 'en')
-    .map((lang) => ({
-      params: { lang },
-    }));
-}
-
-const { lang } = Astro.params as { lang: Locale };
+const lang: Locale = DEFAULT_LOCALE;
 const supportContent = await getSupportContent(lang);
 
 if (!supportContent) {
-  return Astro.redirect('/en/support');
+  return Astro.redirect('/404');
 }
 
 const { data, render } = supportContent;
 const { Content } = await render();
-const currentPath = `/${lang}/support`;
+const currentPath = '/support';
 ---
 
-<BaseLayout 
+<LegalLayout 
   title={data.title} 
   description={data.description} 
   lang={lang}
@@ -51,7 +42,7 @@ const currentPath = `/${lang}/support`;
     
     <Content />
   </div>
-</BaseLayout>
+</LegalLayout>
 
 <style>
   .faq-item {

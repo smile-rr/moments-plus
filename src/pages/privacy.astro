@@ -1,0 +1,26 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { DEFAULT_LOCALE, type Locale } from '../i18n';
+import { getPrivacyContent } from '../utils/content';
+
+const lang: Locale = DEFAULT_LOCALE;
+const privacyContent = await getPrivacyContent(lang);
+
+if (!privacyContent) {
+  return Astro.redirect('/404');
+}
+
+const { data, render } = privacyContent;
+const { Content } = await render();
+const currentPath = '/privacy';
+---
+
+<LegalLayout 
+  title={data.title} 
+  description={data.title}
+  lang={lang}
+  currentPath={currentPath}
+  lastUpdated={data.lastUpdated}
+>
+  <Content />
+</LegalLayout>

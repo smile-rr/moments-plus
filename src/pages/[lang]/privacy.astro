@@ -4,9 +4,12 @@ import { SUPPORTED_LOCALES, type Locale } from '../../i18n';
 import { getPrivacyContent } from '../../utils/content';
 
 export async function getStaticPaths() {
-  return SUPPORTED_LOCALES.map((lang) => ({
-    params: { lang },
-  }));
+  // 只为非默认语言生成路径
+  return SUPPORTED_LOCALES
+    .filter(lang => lang !== 'en')
+    .map((lang) => ({
+      params: { lang },
+    }));
 }
 
 const { lang } = Astro.params as { lang: Locale };
