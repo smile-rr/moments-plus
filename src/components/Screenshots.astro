@@ -22,8 +22,8 @@ const { screenshots } = Astro.props;
       <div class="screenshots-container" id="screenshots-scroll">
         {screenshots.map((screenshot, index) => (
           <div 
-            class="screenshot-item reveal-item"
-            style={`transition-delay: ${index * 0.1}s`}
+            class="screenshot-item"
+            style={`animation-delay: ${index * 0.1}s`}
           >
             <Image 
               src={screenshot.src} 
@@ -82,26 +82,17 @@ const { screenshots } = Astro.props;
   .screenshot-item {
     flex-shrink: 0;
     scroll-snap-align: center;
-  }
-
-  .reveal-item {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: slideInUp 0.8s ease-out both;
   }
   
   .screenshot-img {
     width: 240px;
     height: auto;
     border-radius: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 保持修复 */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: transform 0.3s ease;
-    overflow: hidden;
+    overflow: hidden; /* 保持修复 */
   }
   
   .screenshot-item:hover .screenshot-img {
@@ -141,6 +132,17 @@ const { screenshots } = Astro.props;
     background: rgba(0, 0, 0, 0.4);
     width: 24px;
     border-radius: 4px;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
 
@@ -183,23 +185,5 @@ const { screenshots } = Astro.props;
         indicator.classList.toggle('active', index === closestIndex);
       });
     });
-
-    // Intersection Observer for scroll reveal
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, observerOptions);
-
-    const revealItems = container.querySelectorAll('.reveal-item');
-    revealItems.forEach(item => observer.observe(item));
   }
 </script>
