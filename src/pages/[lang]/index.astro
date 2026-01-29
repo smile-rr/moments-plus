@@ -42,13 +42,11 @@ const currentPath = `/${lang}`;
     appIcon="/images/icon/AppIconImage.png"
   />
   
-  <Screenshots screenshots={data.screenshots} />
-  
   <Features 
     features={data.features}
-    title={data.featuresSection?.title}
-    subtitle={data.featuresSection?.subtitle}
   />
+  
+  <Screenshots screenshots={data.screenshots} />
   
   <DownloadCTA 
     ctaText={data.hero.ctaText}

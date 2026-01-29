@@ -8,27 +8,16 @@ interface Props {
   appIcon: string;
 }
 
-const { title, subtitle, description, ctaText, ctaLink, appIcon } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
-<section class="pt-24 pb-20 md:pt-40 md:pb-32 px-4 md:px-8 max-w-5xl mx-auto">
-  <div class="text-center max-w-3xl mx-auto">
-    <div class="flex justify-center mb-8">
-      <img 
-        src={appIcon} 
-        alt={`${title} App Icon`} 
-        class="w-24 h-24 md:w-28 md:h-28 rounded-[22px] shadow-xl"
-      />
-    </div>
-    
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6" style="color: #2c2c2c; line-height: 1.1;">
+<section class="min-h-screen flex items-center justify-center px-4 md:px-8 py-20">
+  <div class="text-center max-w-4xl mx-auto">
+    <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold mb-8" style="color: #1d1d1f; line-height: 1.05; letter-spacing: -0.015em;">
       {title}
     </h1>
-    <p class="text-2xl md:text-3xl mb-8 font-light" style="color: #6b6b6b; line-height: 1.4;">
+    <p class="text-2xl md:text-3xl font-light" style="color: #86868b; line-height: 1.4;">
       {subtitle}
-    </p>
-    <p class="text-lg md:text-xl mb-16 leading-relaxed max-w-2xl mx-auto" style="color: #8a8a8a;">
-      {description}
     </p>
   </div>
 </section>

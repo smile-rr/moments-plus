@@ -10,28 +10,23 @@ const { lang } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer style="background: rgba(248, 246, 242, 0.5); border-top: 1px solid rgba(0, 0, 0, 0.06);" class="mt-24 md:mt-32">
-  <div class="max-w-6xl mx-auto px-4 md:px-8 py-16">
-    <div class="flex flex-col items-center gap-8">
-      <div class="flex items-center gap-2">
-        <img src="/images/icon/AppIconImage.png" alt="Moments+ Icon" class="w-11 h-11 rounded-lg" />
-        <span class="text-xl font-semibold" style="color: #2c2c2c;">Moments+</span>
-      </div>
-      
-      <div class="flex flex-wrap justify-center gap-8">
-        <a href={getLocalizedPath(lang, 'privacy')} class="hover:opacity-70 transition-opacity" style="color: #6b6b6b;">
+<footer style="background: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.04);">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+    <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-wrap justify-center gap-8 text-sm">
+        <a href={getLocalizedPath(lang, 'privacy')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
           {t(lang, 'footer.links.privacy')}
         </a>
-        <a href={getLocalizedPath(lang, 'terms')} class="hover:opacity-70 transition-opacity" style="color: #6b6b6b;">
+        <a href={getLocalizedPath(lang, 'terms')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
           {t(lang, 'footer.links.terms')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="hover:opacity-70 transition-opacity" style="color: #6b6b6b;">
+        <a href={getLocalizedPath(lang, 'support')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
           {t(lang, 'footer.links.support')}
         </a>
       </div>
       
-      <p style="color: #8a8a8a;">
-        © {currentYear} Moments+. {t(lang, 'footer.copyright')}
+      <p class="text-sm" style="color: #86868b;">
+        © {currentYear} Moments+
       </p>
     </div>
   </div>
