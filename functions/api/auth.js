@@ -15,7 +15,7 @@ export async function onRequest(context) {
     const authUrl = new URL('https://github.com/login/oauth/authorize');
     authUrl.searchParams.set('client_id', clientId);
     authUrl.searchParams.set('redirect_uri', `${origin}/api/callback`);
-    authUrl.searchParams.set('scope', 'repo,user');
+    // GitHub App permissions are handled by the app installation, no scope needed
     authUrl.searchParams.set('state', crypto.randomUUID());
 
     return Response.redirect(authUrl.toString(), 302);
