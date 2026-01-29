@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import AppIcon from '../assets/images/icon/AppIconImage.png';
 import type { Locale } from '../i18n';
 import { t, getLocalizedPath } from '../i18n';
 
@@ -18,10 +20,12 @@ const currentYear = new Date().getFullYear();
       <!-- Brand -->
       <div class="footer-brand">
         <div class="flex items-center gap-2 mb-4">
-          <img 
-            src="/images/icon/AppIconImage.png" 
+          <Image 
+            src={AppIcon} 
             alt="Moments+" 
             class="w-10 h-10 rounded-lg"
+            width={80}
+            densities={[1.5, 2]}
             style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);"
           />
           <span class="font-semibold text-lg" style="color: #1d1d1f;">Moments+</span>

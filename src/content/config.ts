@@ -3,7 +3,7 @@ import { defineCollection, z } from 'astro:content';
 // 主页内容 Schema
 const homeCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     subtitle: z.string(),
     description: z.string(),
@@ -23,7 +23,7 @@ const homeCollection = defineCollection({
       icon: z.string().optional(),
     })),
     screenshots: z.array(z.object({
-      src: z.string(),
+      src: image(),
       alt: z.string(),
       caption: z.string().optional(),
     })),

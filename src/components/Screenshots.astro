@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Screenshot {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   caption?: string;
 }
@@ -22,11 +25,12 @@ const { screenshots } = Astro.props;
             class="screenshot-item"
             style={`animation-delay: ${index * 0.1}s`}
           >
-            <img 
+            <Image 
               src={screenshot.src} 
               alt={screenshot.alt}
-              loading="lazy"
               class="screenshot-img"
+              width={280}
+              densities={[1.5, 2]}
             />
           </div>
         ))}
