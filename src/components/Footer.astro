@@ -10,27 +10,27 @@ const { lang } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16 md:mt-24 transition-colors">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+<footer class="bg-gray-50 border-t border-gray-200 mt-20 md:mt-32">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-12">
     <div class="flex flex-col items-center gap-6">
       <div class="flex items-center gap-2">
         <img src="/images/icon/AppIconImage.png" alt="Moments+ Icon" class="w-10 h-10 rounded-lg" />
-        <span class="text-xl font-semibold text-gray-900 dark:text-white">Moments+</span>
+        <span class="text-lg font-semibold text-gray-900">Moments+</span>
       </div>
       
-      <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-        <a href={getLocalizedPath(lang, 'privacy')} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm font-medium">
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href={getLocalizedPath(lang, 'privacy')} class="text-gray-600 hover:text-gray-900 transition-colors text-sm">
           {t(lang, 'footer.links.privacy')}
         </a>
-        <a href={getLocalizedPath(lang, 'terms')} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm font-medium">
+        <a href={getLocalizedPath(lang, 'terms')} class="text-gray-600 hover:text-gray-900 transition-colors text-sm">
           {t(lang, 'footer.links.terms')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm font-medium">
+        <a href={getLocalizedPath(lang, 'support')} class="text-gray-600 hover:text-gray-900 transition-colors text-sm">
           {t(lang, 'footer.links.support')}
         </a>
       </div>
       
-      <p class="text-gray-500 dark:text-gray-500 text-sm">
+      <p class="text-gray-500 text-sm">
         © {currentYear} Moments+. {t(lang, 'footer.copyright')}
       </p>
     </div>

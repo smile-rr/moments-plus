@@ -12,32 +12,23 @@ interface Props {
 const { screenshots } = Astro.props;
 ---
 
-<section class="mt-16 md:mt-24 px-4 md:px-8 max-w-7xl mx-auto">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-      See it in action
-    </h2>
-    <p class="text-lg mt-4 text-slate-600 dark:text-slate-400">
-      Beautiful interface designed for your memories
-    </p>
-  </div>
-  
-  <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
-    {screenshots.map((screenshot) => (
-      <div class="flex-shrink-0 snap-center">
-        <div class="group relative">
+<section class="py-20 md:py-32 bg-gray-50 -mx-4 md:-mx-8 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+      {screenshots.map((screenshot) => (
+        <div class="flex-shrink-0 snap-center first:ml-4 last:mr-4">
           <img 
             src={screenshot.src} 
             alt={screenshot.alt}
             loading="lazy"
-            class="w-56 md:w-64 h-auto rounded-3xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+            class="w-64 h-auto rounded-3xl shadow-xl"
           />
           {screenshot.caption && (
-            <p class="mt-4 text-center font-medium text-slate-700 dark:text-slate-300">{screenshot.caption}</p>
+            <p class="mt-4 text-center text-sm font-medium text-gray-700">{screenshot.caption}</p>
           )}
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
 

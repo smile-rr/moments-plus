@@ -13,6 +13,10 @@ const homeCollection = defineCollection({
       ctaText: z.string(),
       ctaLink: z.string(),
     }),
+    featuresSection: z.object({
+      title: z.string().optional(),
+      subtitle: z.string().optional(),
+    }).optional(),
     features: z.array(z.object({
       title: z.string(),
       description: z.string(),

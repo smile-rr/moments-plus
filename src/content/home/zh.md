@@ -7,6 +7,9 @@ hero:
   subtitle: "记住你的每个瞬间"
   ctaText: "在 App Store 下载"
   ctaLink: "https://apps.apple.com/app/moments-plus"
+featuresSection:
+  title: "你需要的一切"
+  subtitle: "强大的功能帮助你整理和珍藏回忆"
 features:
   - title: "自动整理"
     description: "照片根据拍摄时间和地点智能分组为时刻。"

@@ -7,31 +7,43 @@ interface Feature {
 
 interface Props {
   features: Feature[];
+  title?: string;
+  subtitle?: string;
 }
 
-const { features } = Astro.props;
+const { features, title, subtitle } = Astro.props;
 ---
 
-<section class="mt-16 md:mt-24 px-4 md:px-8 max-w-7xl mx-auto">
-  <div class="text-center mb-16">
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold lg:tracking-tight text-gray-900 dark:text-white">
-      Everything you need in one app
-    </h2>
-    <p class="text-lg md:text-xl mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-      Moments+ comes with powerful features to help you organize and cherish your memories.
-    </p>
-  </div>
+<section class="py-20 md:py-32 px-4 md:px-8 max-w-6xl mx-auto">
+  {(title || subtitle) && (
+    <div class="text-center mb-20">
+      {title && (
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )}
 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+  <div class="grid sm:grid-cols-2 gap-12 md:gap-16">
     {features.map((feature) => (
-      <div class="flex gap-4 items-start group">
-        <div class="mt-1 bg-black dark:bg-white rounded-full p-2 w-10 h-10 shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform">
-          {feature.icon && <span class="text-2xl text-white dark:text-black">{feature.icon}</span>}
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg md:text-xl mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.description}</p>
-        </div>
+      <div class="text-center">
+        {feature.icon && (
+          <div class="text-5xl mb-6">
+            {feature.icon}
+          </div>
+        )}
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+          {feature.title}
+        </h3>
+        <p class="text-gray-600 leading-relaxed">
+          {feature.description}
+        </p>
       </div>
     ))}
   </div>

@@ -43,5 +43,9 @@ const currentPath = `/${lang}`;
   
   <Screenshots screenshots={data.screenshots} />
   
-  <Features features={data.features} />
+  <Features 
+    features={data.features}
+    title={data.featuresSection?.title}
+    subtitle={data.featuresSection?.subtitle}
+  />
 </BaseLayout>

@@ -7,6 +7,9 @@ hero:
   subtitle: "Your moments, remembered"
   ctaText: "Download on App Store"
   ctaLink: "https://apps.apple.com/app/moments-plus"
+featuresSection:
+  title: "Everything you need"
+  subtitle: "Powerful features to help you organize and cherish your memories"
 features:
   - title: "Automatic Organization"
     description: "Photos intelligently grouped into moments based on when and where they were taken."
