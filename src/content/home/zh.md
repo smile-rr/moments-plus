@@ -24,6 +24,9 @@ features:
     description: "所有处理都在你的设备上进行，照片永远不会离开你的手机。"
     icon: "🔒"
 screenshots:
+  - src: "../../assets/images/onboarding/onboarding_premium_zh-Hans.jpg"
+    alt: "你的时刻"
+    caption: "你的时刻"
   - src: "../../assets/images/onboarding/onboarding_auto_organization_zh-Hans.jpg"
     alt: "自动整理"
     caption: "智能整理"
@@ -39,4 +42,5 @@ screenshots:
   - src: "../../assets/images/onboarding/onboarding_moment_actions_zh-Hans.jpg"
     alt: "快捷操作"
     caption: "快捷操作"
+
 ---

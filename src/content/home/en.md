@@ -24,6 +24,9 @@ features:
     description: "All processing happens on your device. Your photos never leave your phone."
     icon: "🔒"
 screenshots:
+  - src: "../../assets/images/onboarding/onboarding_premium.jpg"
+    alt: "Your Moments"
+    caption: "Your Moments"
   - src: "../../assets/images/onboarding/onboarding_auto_organization.jpg"
     alt: "Automatic Organization"
     caption: "Smart Organization"
@@ -39,4 +42,5 @@ screenshots:
   - src: "../../assets/images/onboarding/onboarding_moment_actions.jpg"
     alt: "Moment Actions"
     caption: "Quick Actions"
+
 ---

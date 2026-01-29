@@ -24,6 +24,9 @@ features:
     description: "すべての処理はデバイス上で行われます"
     icon: "🔒"
 screenshots:
+  - src: "../../assets/images/onboarding/onboarding_premium.jpg"
+    alt: "あなたの瞬間"
+    caption: "あなたの瞬間"
   - src: "../../assets/images/onboarding/onboarding_auto_organization.jpg"
     alt: "自動整理"
     caption: "スマート整理"
@@ -39,4 +42,5 @@ screenshots:
   - src: "../../assets/images/onboarding/onboarding_moment_actions.jpg"
     alt: "瞬間アクション"
     caption: "クイックアクション"
+
 ---

@@ -20,7 +20,7 @@ const { screenshots } = Astro.props;
     <!-- Screenshots 容器 -->
     <div class="screenshots-wrapper px-4 md:px-8">
       <div class="screenshots-container" id="screenshots-scroll">
-        {screenshots.slice(0, 5).map((screenshot, index) => (
+        {screenshots.map((screenshot, index) => (
           <div 
             class="screenshot-item"
             style={`animation-delay: ${index * 0.1}s`}
@@ -39,7 +39,7 @@ const { screenshots } = Astro.props;
     
     <!-- 指示器 -->
     <div class="indicators" id="indicators">
-      {screenshots.slice(0, 5).map((_, index) => (
+      {screenshots.map((_, index) => (
         <button 
           class={`indicator ${index === 0 ? 'active' : ''}`}
           data-index={index}
