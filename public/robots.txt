@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yourusername.github.io/moments-plus-website/sitemap-index.xml
+Sitemap: https://yourusername.github.io/sitemap-index.xml

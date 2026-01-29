@@ -25,7 +25,7 @@ export function generateSEOData(
   description: string,
   locale: Locale,
   currentPath: string,
-  siteUrl: string = 'https://yourusername.github.io/moments-plus-website',
+  siteUrl: string = 'https://yourusername.github.io',
   image?: string
 ): SEOData {
   const canonical = `${siteUrl}${currentPath}`;
