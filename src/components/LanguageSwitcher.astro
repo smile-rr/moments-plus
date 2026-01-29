@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n';
-import { SUPPORTED_LOCALES, getLocaleName, getLocalizedPath, DEFAULT_LOCALE } from '../i18n';
+import { getLocalizedPath, DEFAULT_LOCALE } from '../i18n';
 
 interface Props {
   currentLang: Locale;
@@ -9,53 +9,28 @@ interface Props {
 
 const { currentLang, currentPath } = Astro.props;
 
+// 只支持英文和中文
+const languages = [
+  { code: 'en' as Locale, label: 'EN' },
+  { code: 'zh' as Locale, label: '中文' },
+];
+
 // 从当前路径中移除语言前缀，获取页面路径
 let pathWithoutLang = currentPath;
-
-// 如果路径以非默认语言开头，移除语言前缀
-for (const locale of SUPPORTED_LOCALES) {
-  if (locale !== DEFAULT_LOCALE && currentPath.startsWith(`/${locale}`)) {
-    pathWithoutLang = currentPath.replace(`/${locale}`, '') || '/';
-    break;
-  }
+if (currentPath.startsWith('/zh')) {
+  pathWithoutLang = currentPath.replace('/zh', '') || '/';
 }
+
+// 获取另一个语言
+const otherLang = currentLang === 'en' ? 'zh' : 'en';
+const otherLabel = currentLang === 'en' ? '中文' : 'EN';
 ---
 
-<div class="language-switcher relative">
-  <button 
-    class="lang-button flex items-center gap-1.5 px-3 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" 
-    aria-label="Switch language"
-  >
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-    </svg>
-    <span class="font-medium">{getLocaleName(currentLang)}</span>
-    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-    </svg>
-  </button>
-  <div class="lang-menu absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg min-w-[120px] opacity-0 invisible translate-y-[-10px] transition-all z-50">
-    {SUPPORTED_LOCALES.map((locale) => (
-      <a 
-        href={getLocalizedPath(locale, pathWithoutLang)}
-        class={`block px-4 py-2.5 text-sm transition-colors first:rounded-t-lg last:rounded-b-lg ${
-          locale === currentLang 
-            ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold' 
-            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-        }`}
-        hreflang={locale}
-      >
-        {getLocaleName(locale)}
-      </a>
-    ))}
-  </div>
-</div>
-
-<style>
-  .language-switcher:hover .lang-menu,
-  .language-switcher:focus-within .lang-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-</style>
+<a 
+  href={getLocalizedPath(otherLang, pathWithoutLang)}
+  class="text-sm hover:opacity-70 transition-opacity"
+  style="color: #86868b;"
+  hreflang={otherLang}
+>
+  {otherLabel}
+</a>

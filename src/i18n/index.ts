@@ -1,8 +1,7 @@
 import enTranslations from './locales/en.json';
 import zhTranslations from './locales/zh.json';
-import jaTranslations from './locales/ja.json';
 
-export const SUPPORTED_LOCALES = ['en', 'zh', 'ja'] as const;
+export const SUPPORTED_LOCALES = ['en', 'zh'] as const;
 export type Locale = typeof SUPPORTED_LOCALES[number];
 
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -10,7 +9,6 @@ export const DEFAULT_LOCALE: Locale = 'en';
 const translations = {
   en: enTranslations,
   zh: zhTranslations,
-  ja: jaTranslations,
 };
 
 /**
@@ -38,7 +36,7 @@ export function getLocalizedPath(locale: Locale, path: string = ''): string {
   // 移除开头的斜杠
   const cleanPath = path.replace(/^\//, '');
   // 移除语言前缀（如果存在）
-  const pathWithoutLocale = cleanPath.replace(/^(en|zh|ja)\//, '');
+  const pathWithoutLocale = cleanPath.replace(/^(en|zh)\//, '');
   
   // 英文使用根路径，其他语言使用语言前缀
   if (locale === DEFAULT_LOCALE) {
@@ -112,9 +110,8 @@ export function getAllLocalePaths(path: string): Record<Locale, string> {
  */
 export function getLocaleName(locale: Locale): string {
   const names: Record<Locale, string> = {
-    en: 'English',
+    en: 'EN',
     zh: '中文',
-    ja: '日本語',
   };
   return names[locale];
 }
