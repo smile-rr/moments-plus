@@ -14,10 +14,10 @@ const { screenshots } = Astro.props;
 
 <section class="mt-16 md:mt-24 px-4 md:px-8 max-w-7xl mx-auto">
   <div class="text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-bold">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
       See it in action
     </h2>
-    <p class="text-lg mt-4 text-slate-600">
+    <p class="text-lg mt-4 text-slate-600 dark:text-slate-400">
       Beautiful interface designed for your memories
     </p>
   </div>
@@ -33,7 +33,7 @@ const { screenshots } = Astro.props;
             class="w-56 md:w-64 h-auto rounded-3xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
           />
           {screenshot.caption && (
-            <p class="mt-4 text-center font-medium text-slate-700">{screenshot.caption}</p>
+            <p class="mt-4 text-center font-medium text-slate-700 dark:text-slate-300">{screenshot.caption}</p>
           )}
         </div>
       </div>

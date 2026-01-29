@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "首页",
+    "features": "功能",
     "blog": "博客",
     "support": "支持",
+    "download": "下载",
     "privacy": "隐私政策",
     "terms": "使用条款"
   },

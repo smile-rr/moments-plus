@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "ホーム",
+    "features": "機能",
     "blog": "ブログ",
     "support": "サポート",
+    "download": "ダウンロード",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約"
   },

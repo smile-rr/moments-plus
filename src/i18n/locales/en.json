@@ -1,8 +1,10 @@
 {
   "nav": {
     "home": "Home",
+    "features": "Features",
     "blog": "Blog",
     "support": "Support",
+    "download": "Download",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use"
   },
