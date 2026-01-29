@@ -3,7 +3,7 @@ backend:
   name: github
   repo: smile-rr/moments-plus
   branch: release_v2.0
-  base_url: https://moments-plus.pages.dev
+  base_url: https://moments-plus.com
   auth_endpoint: /api/auth
 
 publish_mode: editorial_workflow
