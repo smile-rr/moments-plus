@@ -14,13 +14,11 @@ const latestPosts = posts.slice(0, 3);
 const sectionTitle = {
   en: 'Latest Stories',
   zh: '最新动态',
-  ja: '最新記事',
 };
 
 const viewAllText = {
   en: 'View All',
   zh: '查看全部',
-  ja: 'すべて見る',
 };
 ---
 
@@ -45,7 +43,7 @@ const viewAllText = {
       <div class="grid md:grid-cols-3 gap-8">
         {latestPosts.map((post, index) => (
           <a 
-            href={getLocalizedPath(lang, `blog/${post.id.split('/')[1]}`)}
+            href={getLocalizedPath(lang, `blog/${post.id.split('/')[1].replace(/\.md$/, '')}`)}
             class="blog-card group"
             style={`animation-delay: ${index * 0.1}s`}
           >
