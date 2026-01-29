@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import AppIcon from '../assets/images/icon/AppIconImage.png';
 import type { Locale } from '../i18n';
 import { t, getLocalizedPath } from '../i18n';
-import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   lang: Locale;
@@ -34,7 +33,7 @@ const { lang, currentPath } = Astro.props;
       <a href={getLocalizedPath(lang, 'support')} class="text-sm hover:opacity-70 transition-opacity hidden md:block" style="color: #1d1d1f;">
         {t(lang, 'nav.support')}
       </a>
-      <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
+
       <a 
         href="https://apps.apple.com/app/moments-plus" 
         target="_blank"

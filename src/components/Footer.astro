@@ -3,12 +3,14 @@ import { Image } from 'astro:assets';
 import AppIcon from '../assets/images/icon/AppIconImage.png';
 import type { Locale } from '../i18n';
 import { t, getLocalizedPath } from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   lang: Locale;
+  currentPath: string;
 }
 
-const { lang } = Astro.props;
+const { lang, currentPath } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -59,6 +61,9 @@ const currentYear = new Date().getFullYear();
           >
             {t(lang, 'footer.links.download')}
           </a>
+          <div class="pt-2">
+            <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
+          </div>
         </div>
       </div>
     </div>
