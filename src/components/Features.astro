@@ -12,74 +12,107 @@ interface Props {
 }
 
 const { features } = Astro.props;
+
+// Bento 风格的颜色配置
+const cardColors = [
+  'background: rgba(235, 245, 255, 0.6);', // 淡蓝 (自动整理)
+  'background: rgba(240, 253, 244, 0.6);', // 淡绿 (地图)
+  'background: rgba(255, 251, 235, 0.6);', // 淡黄 (笔记)
+  'background: rgba(250, 245, 255, 0.6);', // 淡紫 (隐私)
+];
 ---
 
 <section class="features-section py-32 px-4 md:px-8 relative overflow-hidden">
   <div class="features-bg"></div>
   
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
-      {features.map((feature, index) => (
-        <div 
-          class="feature-item text-center"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          {feature.icon && (
-            <div class="feature-icon text-5xl md:text-6xl mb-4">
-              {feature.icon}
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+      {features.map((feature, index) => {
+        // 配置不同卡片的占据宽度：1、4卡占4列，2、3卡占2列
+        const colSpan = (index === 0 || index === 3) ? 'md:col-span-4' : 'md:col-span-2';
+        
+        return (
+          <div 
+            class={`bento-card ${colSpan} p-10 rounded-[2.5rem] relative overflow-hidden group transition-all duration-500 hover:-translate-y-2`}
+            style={`${cardColors[index % cardColors.length]} animation-delay: ${index * 0.1}s`}
+          >
+            <!-- 装饰性光晕 -->
+            <div class="card-glow opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <div class="relative z-10 h-full flex flex-col">
+              {feature.icon && (
+                <div class="feature-icon text-5xl md:text-6xl mb-8 transform transition-transform duration-500 group-hover:scale-110">
+                  {feature.icon}
+                </div>
+              )}
+              <div class="mt-auto">
+                <h3 class="text-2xl font-semibold mb-3" style="color: #1d1d1f; letter-spacing: -0.02em;">
+                  {feature.title}
+                </h3>
+                <p class="text-base leading-relaxed max-w-md" style="color: #424245;">
+                  {feature.description}
+                </p>
+              </div>
             </div>
-          )}
-          <h3 class="text-lg md:text-xl font-semibold mb-2" style="color: #1d1d1f;">
-            {feature.title}
-          </h3>
-          <p class="text-sm leading-relaxed" style="color: #86868b;">
-            {feature.description}
-          </p>
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>
 
 <style>
   .features-section {
-    background: linear-gradient(180deg, #f7f7f9 0%, #f5f5f7 50%, #f7f7f9 100%);
+    background: #ffffff;
   }
   
   .features-bg {
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(ellipse 50% 40% at 20% 30%, rgba(255, 218, 185, 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse 40% 30% at 80% 70%, rgba(230, 230, 250, 0.04) 0%, transparent 40%);
+      radial-gradient(circle at 10% 20%, rgba(255, 218, 185, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(230, 230, 250, 0.1) 0%, transparent 40%);
   }
   
-  .feature-item {
-    animation: fadeInUp 0.8s ease-out both;
+  .bento-card {
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    pointer-events: none;
   }
   
   .feature-icon {
-    animation: iconFloat 6s ease-in-out infinite;
-    animation-delay: inherit;
+    display: inline-block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
   }
   
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
-  @keyframes iconFloat {
-    0%, 100% {
-      transform: translateY(0) scale(1);
+
+  /* 移动端间距微调 */
+  @media (max-width: 768px) {
+    .bento-card {
+      padding: 2.5rem;
+      border-radius: 2rem;
     }
-    50% {
-      transform: translateY(-4px) scale(1.02);
+    .feature-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
     }
   }
 </style>

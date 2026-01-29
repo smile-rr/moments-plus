@@ -13,14 +13,19 @@
     "links": {
       "privacy": "プライバシーポリシー",
       "terms": "利用規約",
-      "support": "サポート"
+      "support": "サポート",
+      "download": "アプリをダウンロード"
     }
   },
   "common": {
     "readMore": "続きを読む",
     "backToHome": "ホームに戻る",
     "notFound": "ページが見つかりません",
-    "notFoundMessage": "申し訳ございません。お探しのページは存在しません。"
+    "notFoundMessage": "申し訳ございません。お探しのページは存在しません。",
+    "privacy": {
+      "title": "プライバシー、それは約束です。",
+      "description": "Moments+はデバイス上のインテリジェンスを使用します。写真はローカルで処理され、デバイスから離れることはありません。"
+    }
   },
   "blog": {
     "title": "ブログ",

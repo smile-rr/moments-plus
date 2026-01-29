@@ -4,6 +4,7 @@ import Hero from '../../components/Hero.astro';
 import Features from '../../components/Features.astro';
 import Screenshots from '../../components/Screenshots.astro';
 import BlogPreview from '../../components/BlogPreview.astro';
+import Privacy from '../../components/Privacy.astro';
 import { SUPPORTED_LOCALES, type Locale } from '../../i18n';
 import { getHomeContent } from '../../utils/content';
 
@@ -40,6 +41,7 @@ const currentPath = `/${lang}`;
     ctaText={data.hero.ctaText}
     ctaLink={data.hero.ctaLink}
     appIcon="/images/icon/AppIconImage.png"
+    lang={lang}
   />
   
   <Screenshots screenshots={data.screenshots} />

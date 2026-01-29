@@ -5,7 +5,7 @@ description: "Transform your photo library into beautifully organized memories, 
 hero:
   title: "Moments+"
   subtitle: "Your moments, remembered"
-  ctaText: "Download on App Store"
+  ctaText: "Get the App"
   ctaLink: "https://apps.apple.com/app/moments-plus"
 featuresSection:
   title: "Everything you need"

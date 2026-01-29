@@ -52,16 +52,16 @@ const currentYear = new Date().getFullYear();
           <a href={getLocalizedPath(lang, 'terms')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
             {t(lang, 'footer.links.terms')}
           </a>
-          <a 
-            href="https://apps.apple.com/app/moments-plus" 
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:opacity-70 transition-opacity"
-            style="color: #86868b;"
-          >
-            {t(lang, 'footer.links.download')}
-          </a>
-          <div class="pt-2">
+          <div class="pt-4 flex flex-col gap-6">
+            <a 
+              href="https://apps.apple.com/app/moments-plus" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm hover:opacity-70 transition-opacity"
+              style="color: #86868b;"
+            >
+              {t(lang, 'footer.links.download')}
+            </a>
             <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
           </div>
         </div>

@@ -5,7 +5,7 @@ description: "写真は増え続けます。Moments+は、それらを違う視�
 hero:
   title: "Moments+"
   subtitle: "あなたの瞬間を、記憶に"
-  ctaText: "App Storeでダウンロード"
+  ctaText: "ダウンロード"
   ctaLink: "https://apps.apple.com/app/moments-plus"
 featuresSection:
   title: "必要なすべて"

@@ -5,7 +5,7 @@ description: "将你的照片图库转变为精美整理的记忆集合，按时
 hero:
   title: "时刻+"
   subtitle: "记住你的每个瞬间"
-  ctaText: "在 App Store 下载"
+  ctaText: "获取应用"
   ctaLink: "https://apps.apple.com/app/moments-plus"
 featuresSection:
   title: "你需要的一切"

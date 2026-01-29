@@ -1,6 +1,5 @@
 ---
-import type { Locale } from '../i18n';
-import { getLocalizedPath } from '../i18n';
+import { SUPPORTED_LOCALES, type Locale, getLocaleName, getLocalizedPath } from '../i18n';
 
 interface Props {
   currentLang: Locale;
@@ -11,21 +10,37 @@ const { currentLang, currentPath } = Astro.props;
 
 // 从当前路径中移除语言前缀
 let pathWithoutLang = currentPath;
-if (currentPath.startsWith('/zh')) {
-  pathWithoutLang = currentPath.replace('/zh', '') || '/';
-}
-
-// 获取另一个语言
-const otherLang = currentLang === 'en' ? 'zh' : 'en';
-const otherLabel = currentLang === 'en' ? '中文' : 'EN';
+SUPPORTED_LOCALES.forEach(loc => {
+  if (currentPath.startsWith(`/${loc}`)) {
+    pathWithoutLang = currentPath.replace(`/${loc}`, '') || '/';
+  }
+});
 ---
 
-<a 
-  href={getLocalizedPath(otherLang, pathWithoutLang)}
-  class="text-sm hover:opacity-70 transition-opacity"
-  style="color: #86868b;"
-  hreflang={otherLang}
-  aria-label={`Switch to ${otherLabel}`}
->
-  {otherLabel}
-</a>
+<div class="flex items-center gap-3">
+  {SUPPORTED_LOCALES.map((loc) => (
+    <a 
+      href={getLocalizedPath(loc, pathWithoutLang)}
+      class={`text-[11px] font-medium tracking-wider transition-all hover:opacity-100 ${loc === currentLang ? 'opacity-100 text-[#1d1d1f]' : 'opacity-40 text-[#86868b] hover:opacity-60'}`}
+      hreflang={loc}
+      aria-label={`Switch to ${getLocaleName(loc)}`}
+    >
+      {getLocaleName(loc)}
+    </a>
+  ))}
+</div><style>
+  a {
+    position: relative;
+    padding: 2px 0;
+  }
+  
+  a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+  }
+</style>

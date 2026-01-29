@@ -15,14 +15,18 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "support": "Support",
-      "download": "App Store"
+      "download": "Download App"
     }
   },
   "common": {
     "readMore": "Read More",
     "backToHome": "Back to Home",
     "notFound": "Page Not Found",
-    "notFoundMessage": "Sorry, the page you are looking for does not exist."
+    "notFoundMessage": "Sorry, the page you are looking for does not exist.",
+    "privacy": {
+      "title": "Privacy, not an option. A promise.",
+      "description": "Moments+ uses on-device intelligence. Your photos are processed locally and never leave your phone."
+    }
   },
   "blog": {
     "title": "Blog",
