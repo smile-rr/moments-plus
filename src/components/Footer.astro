@@ -1,0 +1,71 @@
+---
+import type { Locale } from '../i18n';
+import { t, getLocalizedPath } from '../i18n';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="links">
+      <a href={getLocalizedPath(lang, 'privacy')}>{t(lang, 'footer.links.privacy')}</a>
+      <a href={getLocalizedPath(lang, 'terms')}>{t(lang, 'footer.links.terms')}</a>
+      <a href={getLocalizedPath(lang, 'support')}>{t(lang, 'footer.links.support')}</a>
+    </div>
+    <p class="copyright">{t(lang, 'footer.copyright')}</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .links a:hover {
+    color: #111827;
+  }
+
+  .copyright {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      padding: 1.5rem 1rem;
+    }
+
+    .links {
+      gap: 1rem;
+    }
+  }
+</style>

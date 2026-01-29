@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SUPPORTED_LOCALES, type Locale, t } from '../../i18n';
+import { getSupportContent } from '../../utils/content';
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const supportContent = await getSupportContent(lang);
+
+if (!supportContent) {
+  return Astro.redirect('/en/support');
+}
+
+const { data, render } = supportContent;
+const { Content } = await render();
+const currentPath = `/${lang}/support`;
+---
+
+<BaseLayout 
+  title={data.title} 
+  description={data.description} 
+  lang={lang}
+  currentPath={currentPath}
+>
+  <div class="content">
+    <h1>{data.title}</h1>
+    
+    <h2>{t(lang, 'nav.support')}</h2>
+    <p>{data.description}</p>
+    <p>Email: <a href={`mailto:${data.email}`}>{data.email}</a></p>
+    
+    {data.faq && data.faq.length > 0 && (
+      <>
+        <h2>FAQ</h2>
+        {data.faq.map((item) => (
+          <div class="faq-item">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        ))}
+      </>
+    )}
+    
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-item {
+    margin-bottom: 2rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .faq-item p {
+    color: #555;
+    line-height: 1.6;
+  }
+</style>

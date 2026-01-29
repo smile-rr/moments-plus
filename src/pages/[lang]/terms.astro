@@ -1,0 +1,32 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { SUPPORTED_LOCALES, type Locale } from '../../i18n';
+import { getTermsContent } from '../../utils/content';
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const termsContent = await getTermsContent(lang);
+
+if (!termsContent) {
+  return Astro.redirect('/en/terms');
+}
+
+const { data, render } = termsContent;
+const { Content } = await render();
+const currentPath = `/${lang}/terms`;
+---
+
+<LegalLayout 
+  title={data.title} 
+  description={data.title}
+  lang={lang}
+  currentPath={currentPath}
+  lastUpdated={data.lastUpdated}
+>
+  <Content />
+</LegalLayout>

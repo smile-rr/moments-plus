@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "support": "サポート",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "footer": {
+    "copyright": "© 2026 Moments+. All rights reserved.",
+    "links": {
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約",
+      "support": "サポート"
+    }
+  },
+  "common": {
+    "readMore": "続きを読む",
+    "backToHome": "ホームに戻る",
+    "notFound": "ページが見つかりません",
+    "notFoundMessage": "申し訳ございません。お探しのページは存在しません。"
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}

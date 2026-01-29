@@ -1,0 +1,102 @@
+---
+import type { Locale } from '../i18n';
+import { t, getLocalizedPath } from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Locale;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+---
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href={getLocalizedPath(lang, '')}>
+        <img src="/images/icon/AppIconImage.png" alt="Moments+ Icon" class="logo-icon" />
+        <span>Moments+</span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href={getLocalizedPath(lang, '')}>{t(lang, 'nav.home')}</a>
+      <a href={getLocalizedPath(lang, 'support')}>{t(lang, 'nav.support')}</a>
+    </div>
+    <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
+  </nav>
+</header>
+
+<style>
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #111827;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #6b7280;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: #111827;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .logo a {
+      font-size: 1.1rem;
+    }
+  }
+</style>

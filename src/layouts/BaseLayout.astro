@@ -1,0 +1,61 @@
+---
+import type { Locale } from '../i18n';
+import { generateSEOData } from '../utils/seo';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Locale;
+  currentPath: string;
+}
+
+const { title, description, lang, currentPath } = Astro.props;
+const seoData = generateSEOData(title, description, lang, currentPath);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{seoData.title}</title>
+    <meta name="description" content={seoData.description} />
+    <link rel="canonical" href={seoData.canonical} />
+    
+    <!-- Hreflang Tags -->
+    {seoData.alternates.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={seoData.openGraph.title} />
+    <meta property="og:description" content={seoData.openGraph.description} />
+    <meta property="og:image" content={seoData.openGraph.image} />
+    <meta property="og:type" content={seoData.openGraph.type} />
+    <meta property="og:url" content={seoData.canonical} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seoData.openGraph.title} />
+    <meta name="twitter:description" content={seoData.openGraph.description} />
+    <meta name="twitter:image" content={seoData.openGraph.image} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <Header lang={lang} currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

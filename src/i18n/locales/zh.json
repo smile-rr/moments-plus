@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "首页",
+    "support": "支持",
+    "privacy": "隐私政策",
+    "terms": "使用条款"
+  },
+  "footer": {
+    "copyright": "© 2026 时刻+. 保留所有权利。",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "使用条款",
+      "support": "支持"
+    }
+  },
+  "common": {
+    "readMore": "阅读更多",
+    "backToHome": "返回首页",
+    "notFound": "页面未找到",
+    "notFoundMessage": "抱歉，您访问的页面不存在。"
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}

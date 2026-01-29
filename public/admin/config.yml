@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: yourusername/moments-plus-website
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "zh_Hans"
+
+collections:
+  - name: "home"
+    label: "主页"
+    folder: "src/content/home"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "副标题", name: "subtitle", widget: "string"}
+      - {label: "描述", name: "description", widget: "text"}
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - {label: "标题", name: "title", widget: "string"}
+          - {label: "副标题", name: "subtitle", widget: "string"}
+          - {label: "按钮文本", name: "ctaText", widget: "string"}
+          - {label: "按钮链接", name: "ctaLink", widget: "string"}
+      - label: "功能特性"
+        name: "features"
+        widget: "list"
+        fields:
+          - {label: "标题", name: "title", widget: "string"}
+          - {label: "描述", name: "description", widget: "text"}
+          - {label: "图标", name: "icon", widget: "string", required: false}
+      - label: "截图"
+        name: "screenshots"
+        widget: "list"
+        fields:
+          - {label: "图片路径", name: "src", widget: "string"}
+          - {label: "替代文本", name: "alt", widget: "string"}
+          - {label: "说明", name: "caption", widget: "string", required: false}
+
+  - name: "support"
+    label: "支持页面"
+    folder: "src/content/support"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "描述", name: "description", widget: "text"}
+      - {label: "联系邮箱", name: "email", widget: "string"}
+      - label: "常见问题"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "问题", name: "question", widget: "string"}
+          - {label: "答案", name: "answer", widget: "text"}
+      - {label: "内容", name: "body", widget: "markdown", required: false}
+
+  - name: "privacy"
+    label: "隐私政策"
+    folder: "src/content/privacy"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "最后更新", name: "lastUpdated", widget: "datetime"}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "terms"
+    label: "使用条款"
+    folder: "src/content/terms"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "最后更新", name: "lastUpdated", widget: "datetime"}
+      - {label: "内容", name: "body", widget: "markdown"}

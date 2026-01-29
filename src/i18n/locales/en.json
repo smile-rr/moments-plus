@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "Home",
+    "support": "Support",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "footer": {
+    "copyright": "© 2026 Moments+. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "support": "Support"
+    }
+  },
+  "common": {
+    "readMore": "Read More",
+    "backToHome": "Back to Home",
+    "notFound": "Page Not Found",
+    "notFoundMessage": "Sorry, the page you are looking for does not exist."
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}
