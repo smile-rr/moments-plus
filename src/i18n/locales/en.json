@@ -19,6 +19,7 @@
     }
   },
   "common": {
+    "brand": "Moments+",
     "readMore": "Read More",
     "backToHome": "Back to Home",
     "notFound": "Page Not Found",

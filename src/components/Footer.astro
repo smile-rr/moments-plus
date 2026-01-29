@@ -24,13 +24,13 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center gap-2 mb-4">
           <Image 
             src={AppIcon} 
-            alt="Moments+" 
+            alt={t(lang, 'common.brand')} 
             class="w-10 h-10 rounded-lg"
             width={80}
             densities={[1.5, 2]}
             style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);"
           />
-          <span class="font-semibold text-lg" style="color: #1d1d1f;">Moments+</span>
+          <span class="font-semibold text-lg" style="color: #1d1d1f;">{t(lang, 'common.brand')}</span>
         </div>
         <p class="text-sm" style="color: #86868b; line-height: 1.6;">
           {t(lang, 'footer.tagline')}
@@ -70,7 +70,7 @@ const currentYear = new Date().getFullYear();
     
     <div class="pt-8 border-t border-black/5 text-center">
       <p class="text-sm" style="color: #86868b;">
-        © {currentYear} Moments+. All rights reserved.
+        © {currentYear} {t(lang, 'common.brand')}. {t(lang, 'footer.copyright')}
       </p>
     </div>
   </div>

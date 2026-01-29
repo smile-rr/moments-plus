@@ -19,6 +19,7 @@
     }
   },
   "common": {
+    "brand": "时刻+",
     "readMore": "阅读更多",
     "backToHome": "返回首页",
     "notFound": "页面未找到",
