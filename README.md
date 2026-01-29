@@ -1,25 +1,61 @@
 # Moments+ Website
 
-Moments+ iOS 应用的官方支持网站，使用 Astro 和 Decap CMS 构建。
+Moments+ iOS 应用的官方支持网站，使用 Astro、TailwindCSS 和 Decap CMS 构建。
 
 ## 技术栈
 
 - **框架**: Astro 5.x
+- **样式**: TailwindCSS 3.4
 - **CMS**: Decap CMS 3.x
 - **语言**: TypeScript
-- **样式**: Scoped CSS
 - **部署**: GitHub Pages
 - **CI/CD**: GitHub Actions
 
 ## 功能特性
 
 - ✅ 多语言支持（英文、中文、日文）
-- ✅ 响应式设计
+- ✅ 深色模式支持
+- ✅ 博客系统（产品介绍、使用案例、技巧分享）
+- ✅ 响应式设计（移动端优先）
 - ✅ SEO 优化（meta 标签、sitemap、hreflang）
 - ✅ 内容管理系统（Decap CMS）
 - ✅ 自动部署到 GitHub Pages
-- ✅ 图片懒加载
+- ✅ 现代化 UI（基于 Astroship 设计）
 - ✅ 可访问性优化
+
+## 项目结构
+
+```
+├── src/
+│   ├── components/      # 可复用组件
+│   │   ├── Hero.astro
+│   │   ├── Features.astro
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   └── ThemeToggle.astro
+│   ├── content/         # 内容集合
+│   │   ├── home/        # 主页内容
+│   │   ├── blog/        # 博客文章
+│   │   │   ├── en/
+│   │   │   ├── zh/
+│   │   │   └── ja/
+│   │   ├── support/     # 支持页面
+│   │   ├── privacy/     # 隐私政策
+│   │   └── terms/       # 使用条款
+│   ├── i18n/            # 国际化
+│   │   ├── index.ts
+│   │   └── locales/
+│   ├── layouts/         # 页面布局
+│   ├── pages/           # 路由页面
+│   │   ├── blog/        # 博客页面
+│   │   └── [lang]/      # 多语言页面
+│   ├── styles/          # 全局样式
+│   └── utils/           # 工具函数
+├── public/
+│   ├── admin/           # Decap CMS 管理后台
+│   └── images/          # 静态图片
+└── tailwind.config.mjs  # Tailwind 配置
+```
 
 ## 开发
 
