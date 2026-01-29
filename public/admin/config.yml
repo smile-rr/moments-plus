@@ -41,6 +41,51 @@ collections:
           - {label: "替代文本", name: "alt", widget: "string"}
           - {label: "说明", name: "caption", widget: "string", required: false}
 
+  - name: "blog_en"
+    label: "博客 (English)"
+    folder: "src/content/blog/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "描述", name: "description", widget: "text"}
+      - {label: "发布日期", name: "publishDate", widget: "datetime"}
+      - {label: "作者", name: "author", widget: "string", required: false}
+      - {label: "分类", name: "category", widget: "select", options: ["product", "usecase", "tips", "update"], required: false}
+      - {label: "封面图", name: "image", widget: "image", required: false}
+      - {label: "草稿", name: "draft", widget: "boolean", default: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "blog_zh"
+    label: "博客 (中文)"
+    folder: "src/content/blog/zh"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "描述", name: "description", widget: "text"}
+      - {label: "发布日期", name: "publishDate", widget: "datetime"}
+      - {label: "作者", name: "author", widget: "string", required: false}
+      - {label: "分类", name: "category", widget: "select", options: ["product", "usecase", "tips", "update"], required: false}
+      - {label: "封面图", name: "image", widget: "image", required: false}
+      - {label: "草稿", name: "draft", widget: "boolean", default: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "blog_ja"
+    label: "博客 (日本語)"
+    folder: "src/content/blog/ja"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "描述", name: "description", widget: "text"}
+      - {label: "发布日期", name: "publishDate", widget: "datetime"}
+      - {label: "作者", name: "author", widget: "string", required: false}
+      - {label: "分类", name: "category", widget: "select", options: ["product", "usecase", "tips", "update"], required: false}
+      - {label: "封面图", name: "image", widget: "image", required: false}
+      - {label: "草稿", name: "draft", widget: "boolean", default: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
   - name: "support"
     label: "支持页面"
     folder: "src/content/support"
