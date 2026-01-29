@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n';
-import { getLocalizedPath, DEFAULT_LOCALE } from '../i18n';
+import { getLocalizedPath } from '../i18n';
 
 interface Props {
   currentLang: Locale;
@@ -9,13 +9,7 @@ interface Props {
 
 const { currentLang, currentPath } = Astro.props;
 
-// 只支持英文和中文
-const languages = [
-  { code: 'en' as Locale, label: 'EN' },
-  { code: 'zh' as Locale, label: '中文' },
-];
-
-// 从当前路径中移除语言前缀，获取页面路径
+// 从当前路径中移除语言前缀
 let pathWithoutLang = currentPath;
 if (currentPath.startsWith('/zh')) {
   pathWithoutLang = currentPath.replace('/zh', '') || '/';
@@ -31,6 +25,7 @@ const otherLabel = currentLang === 'en' ? '中文' : 'EN';
   class="text-sm hover:opacity-70 transition-opacity"
   style="color: #86868b;"
   hreflang={otherLang}
+  aria-label={`Switch to ${otherLabel}`}
 >
   {otherLabel}
 </a>

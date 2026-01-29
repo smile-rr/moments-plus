@@ -4,16 +4,18 @@
     "features": "功能",
     "blog": "博客",
     "support": "支持",
-    "download": "下载",
+    "download": "获取应用",
     "privacy": "隐私政策",
     "terms": "使用条款"
   },
   "footer": {
+    "tagline": "精心整理你的每一刻",
     "copyright": "保留所有权利。",
     "links": {
       "privacy": "隐私政策",
       "terms": "使用条款",
-      "support": "支持"
+      "support": "支持",
+      "download": "App Store"
     }
   },
   "common": {

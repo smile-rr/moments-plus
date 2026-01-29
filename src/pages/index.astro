@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
 import Screenshots from '../components/Screenshots.astro';
-import DownloadCTA from '../components/DownloadCTA.astro';
+import BlogPreview from '../components/BlogPreview.astro';
 import { DEFAULT_LOCALE, type Locale } from '../i18n';
 import { getHomeContent } from '../utils/content';
 
@@ -33,16 +33,12 @@ const currentPath = '/';
     appIcon="/images/icon/AppIconImage.png"
   />
   
+  <Screenshots screenshots={data.screenshots} />
+  
   <Features 
     features={data.features}
   />
   
-  <Screenshots screenshots={data.screenshots} />
-  
-  <DownloadCTA 
-    ctaText={data.hero.ctaText}
-    ctaLink={data.hero.ctaLink}
-    lang={lang}
-  />
+  <BlogPreview lang={lang} />
 </BaseLayout>
 

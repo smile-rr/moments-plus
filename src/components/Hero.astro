@@ -8,15 +8,15 @@ interface Props {
   appIcon: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, appIcon } = Astro.props;
 ---
 
 <section class="min-h-screen flex items-center justify-center px-4 md:px-8 py-20">
-  <div class="text-center max-w-4xl mx-auto">
-    <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold mb-8" style="color: #1d1d1f; line-height: 1.05; letter-spacing: -0.015em;">
+  <div class="text-center max-w-5xl mx-auto">
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold mb-6" style="color: #1d1d1f; line-height: 1.05; letter-spacing: -0.015em;">
       {title}
     </h1>
-    <p class="text-2xl md:text-3xl font-light" style="color: #86868b; line-height: 1.4;">
+    <p class="text-xl md:text-2xl font-light" style="color: #86868b; line-height: 1.4;">
       {subtitle}
     </p>
   </div>
