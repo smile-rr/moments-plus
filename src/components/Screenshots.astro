@@ -12,19 +12,20 @@ interface Props {
 const { screenshots } = Astro.props;
 ---
 
-<section class="py-20 md:py-32 bg-gray-50 -mx-4 md:-mx-8 px-4 md:px-8">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
-      {screenshots.map((screenshot) => (
-        <div class="flex-shrink-0 snap-center first:ml-4 last:mr-4">
+<section class="py-24 md:py-40 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex gap-8 md:gap-12 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide justify-center">
+      {screenshots.map((screenshot, index) => (
+        <div class="flex-shrink-0 snap-center" style={`animation: fadeInUp 0.6s ease-out ${index * 0.1}s both;`}>
           <img 
             src={screenshot.src} 
             alt={screenshot.alt}
             loading="lazy"
-            class="w-64 h-auto rounded-3xl shadow-xl"
+            class="w-56 md:w-72 h-auto rounded-[32px] shadow-2xl hover:scale-105 transition-transform duration-500"
+            style="box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);"
           />
           {screenshot.caption && (
-            <p class="mt-4 text-center text-sm font-medium text-gray-700">{screenshot.caption}</p>
+            <p class="mt-6 text-center text-sm font-medium" style="color: #6b6b6b;">{screenshot.caption}</p>
           )}
         </div>
       ))}
@@ -40,5 +41,16 @@ const { screenshots } = Astro.props;
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

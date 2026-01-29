@@ -14,37 +14,50 @@ interface Props {
 const { features, title, subtitle } = Astro.props;
 ---
 
-<section class="py-20 md:py-32 px-4 md:px-8 max-w-6xl mx-auto">
+<section class="py-24 md:py-40 px-4 md:px-8 max-w-5xl mx-auto">
   {(title || subtitle) && (
     <div class="text-center mb-20">
       {title && (
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: #2c2c2c; line-height: 1.2;">
           {title}
         </h2>
       )}
       {subtitle && (
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="text-xl md:text-2xl font-light max-w-2xl mx-auto" style="color: #6b6b6b; line-height: 1.5;">
           {subtitle}
         </p>
       )}
     </div>
   )}
 
-  <div class="grid sm:grid-cols-2 gap-12 md:gap-16">
-    {features.map((feature) => (
-      <div class="text-center">
+  <div class="grid sm:grid-cols-2 gap-16 md:gap-20">
+    {features.map((feature, index) => (
+      <div class="text-center" style={`animation: fadeInUp 0.6s ease-out ${index * 0.15}s both;`}>
         {feature.icon && (
-          <div class="text-5xl mb-6">
+          <div class="text-6xl mb-6 inline-block transform hover:scale-110 transition-transform duration-300">
             {feature.icon}
           </div>
         )}
-        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+        <h3 class="text-2xl font-semibold mb-4" style="color: #2c2c2c;">
           {feature.title}
         </h3>
-        <p class="text-gray-600 leading-relaxed">
+        <p class="text-lg leading-relaxed" style="color: #6b6b6b;">
           {feature.description}
         </p>
       </div>
     ))}
   </div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

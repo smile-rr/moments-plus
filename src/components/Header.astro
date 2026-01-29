@@ -11,19 +11,19 @@ interface Props {
 const { lang, currentPath } = Astro.props;
 ---
 
-<header class="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
-  <nav class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-    <a href={getLocalizedPath(lang, '')} class="flex items-center gap-2 text-gray-900 font-semibold text-lg hover:opacity-70 transition-opacity">
-      <img src="/images/icon/AppIconImage.png" alt="Moments+ Icon" class="w-8 h-8 rounded-lg" />
+<header style="background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.06);" class="sticky top-0 z-50">
+  <nav class="max-w-6xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center">
+    <a href={getLocalizedPath(lang, '')} class="flex items-center gap-2 font-semibold text-lg hover:opacity-70 transition-opacity" style="color: #2c2c2c;">
+      <img src="/images/icon/AppIconImage.png" alt="Moments+ Icon" class="w-9 h-9 rounded-lg" />
       <span>Moments+</span>
     </a>
     
-    <div class="flex items-center gap-6">
-      <div class="hidden md:flex gap-6">
-        <a href={getLocalizedPath(lang, 'blog')} class="text-gray-600 hover:text-gray-900 transition-colors">
+    <div class="flex items-center gap-8">
+      <div class="hidden md:flex gap-8">
+        <a href={getLocalizedPath(lang, 'blog')} class="hover:opacity-70 transition-opacity" style="color: #6b6b6b;">
           {t(lang, 'nav.blog')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="text-gray-600 hover:text-gray-900 transition-colors">
+        <a href={getLocalizedPath(lang, 'support')} class="hover:opacity-70 transition-opacity" style="color: #6b6b6b;">
           {t(lang, 'nav.support')}
         </a>
       </div>
