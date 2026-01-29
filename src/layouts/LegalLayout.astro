@@ -42,74 +42,31 @@ const lastUpdatedText = {
   lang={lang}
   currentPath={currentPath}
 >
-  <div class="content legal-content">
-    <h1>{title}</h1>
-    {lastUpdated && (
-      <p class="updated">
-        {lastUpdatedText[lang]}: {formatDate(lastUpdated, lang)}
-      </p>
-    )}
-    <slot />
-  </div>
+  <article class="max-w-3xl mx-auto px-4 md:px-8 py-12 md:py-16">
+    <header class="mb-8 md:mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+        {title}
+      </h1>
+      {lastUpdated && (
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          {lastUpdatedText[lang]}: {formatDate(lastUpdated, lang)}
+        </p>
+      )}
+    </header>
+    
+    <div class="prose prose-lg dark:prose-invert max-w-none
+      prose-headings:text-gray-900 dark:prose-headings:text-white
+      prose-headings:font-semibold
+      prose-h2:text-xl prose-h2:md:text-2xl prose-h2:mt-8 prose-h2:mb-4
+      prose-h2:pt-6 prose-h2:border-t prose-h2:border-gray-200 dark:prose-h2:border-gray-700
+      prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-3
+      prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+      prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-gray-900 dark:prose-strong:text-white
+      prose-ul:text-gray-600 dark:prose-ul:text-gray-300
+      prose-li:marker:text-gray-400 dark:prose-li:marker:text-gray-500
+    ">
+      <slot />
+    </div>
+  </article>
 </BaseLayout>
-
-<style>
-  .legal-content {
-    max-width: 800px;
-  }
-
-  .legal-content h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .legal-content .updated {
-    color: #999;
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
-  }
-
-  .legal-content h2 {
-    font-size: 1.25rem;
-    margin: 2rem 0 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-  }
-
-  .legal-content h2:first-of-type {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .legal-content h3 {
-    font-size: 1.1rem;
-    margin: 1.5rem 0 0.5rem;
-    color: #444;
-  }
-
-  .legal-content ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .legal-content li {
-    margin-bottom: 0.5rem;
-    color: #555;
-  }
-
-  .legal-content p {
-    margin-bottom: 1rem;
-    color: #555;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .legal-content h1 {
-      font-size: 1.75rem;
-    }
-
-    .legal-content h2 {
-      font-size: 1.15rem;
-    }
-  }
-</style>

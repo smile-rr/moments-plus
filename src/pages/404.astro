@@ -12,82 +12,26 @@ const currentPath = '/404';
   lang={lang}
   currentPath={currentPath}
 >
-  <div class="not-found">
-    <div class="not-found-content">
-      <h1>404</h1>
-      <h2>{t(lang, 'common.notFound')}</h2>
-      <p>{t(lang, 'common.notFoundMessage')}</p>
-      <a href={getLocalizedPath(lang, '')} class="back-home">
+  <div class="min-h-[60vh] flex items-center justify-center px-4 py-16">
+    <div class="text-center max-w-md">
+      <h1 class="text-8xl md:text-9xl font-bold bg-gradient-to-br from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 bg-clip-text text-transparent mb-4">
+        404
+      </h1>
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+        {t(lang, 'common.notFound')}
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+        {t(lang, 'common.notFoundMessage')}
+      </p>
+      <a 
+        href={getLocalizedPath(lang, '')} 
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all hover:scale-105 shadow-lg hover:shadow-xl"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
         {t(lang, 'common.backToHome')}
       </a>
     </div>
   </div>
 </BaseLayout>
-
-<style>
-  .not-found {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .not-found-content {
-    text-align: center;
-    max-width: 500px;
-  }
-
-  .not-found h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #333 0%, #666 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-
-  .not-found h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-
-  .not-found p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .back-home {
-    display: inline-block;
-    background: #007AFF;
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .back-home:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
-  }
-
-  @media (max-width: 768px) {
-    .not-found h1 {
-      font-size: 4rem;
-    }
-
-    .not-found h2 {
-      font-size: 1.5rem;
-    }
-
-    .not-found p {
-      font-size: 1rem;
-    }
-  }
-</style>
