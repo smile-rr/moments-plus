@@ -14,13 +14,18 @@ interface Props {
 const { features } = Astro.props;
 ---
 
-<section class="py-32 px-4 md:px-8" style="background: #f5f5f7;">
-  <div class="max-w-6xl mx-auto">
+<section class="features-section py-32 px-4 md:px-8 relative overflow-hidden">
+  <div class="features-bg"></div>
+  
+  <div class="max-w-6xl mx-auto relative z-10">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
-      {features.map((feature) => (
-        <div class="text-center">
+      {features.map((feature, index) => (
+        <div 
+          class="feature-item text-center"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
           {feature.icon && (
-            <div class="text-6xl mb-4">
+            <div class="feature-icon text-5xl md:text-6xl mb-4">
               {feature.icon}
             </div>
           )}
@@ -35,3 +40,46 @@ const { features } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .features-section {
+    background: linear-gradient(180deg, #f7f7f9 0%, #f5f5f7 50%, #f7f7f9 100%);
+  }
+  
+  .features-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 50% 40% at 20% 30%, rgba(255, 218, 185, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 80% 70%, rgba(230, 230, 250, 0.04) 0%, transparent 40%);
+  }
+  
+  .feature-item {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
+  .feature-icon {
+    animation: iconFloat 6s ease-in-out infinite;
+    animation-delay: inherit;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-4px) scale(1.02);
+    }
+  }
+</style>

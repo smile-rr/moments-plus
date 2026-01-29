@@ -10,13 +10,20 @@ const { lang } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer style="background: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.04);">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+<footer class="footer-section relative overflow-hidden" style="border-top: 1px solid rgba(0, 0, 0, 0.04);">
+  <div class="footer-bg"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 relative z-10">
     <div class="grid md:grid-cols-2 gap-12 mb-12">
       <!-- Brand -->
-      <div>
+      <div class="footer-brand">
         <div class="flex items-center gap-2 mb-4">
-          <img src="/images/icon/AppIconImage.png" alt="Moments+" class="w-10 h-10 rounded-lg" />
+          <img 
+            src="/images/icon/AppIconImage.png" 
+            alt="Moments+" 
+            class="w-10 h-10 rounded-lg"
+            style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);"
+          />
           <span class="font-semibold text-lg" style="color: #1d1d1f;">Moments+</span>
         </div>
         <p class="text-sm" style="color: #86868b; line-height: 1.6;">
@@ -25,7 +32,7 @@ const currentYear = new Date().getFullYear();
       </div>
       
       <!-- Links -->
-      <div>
+      <div class="footer-links">
         <div class="flex flex-col gap-3 text-sm">
           <a href={getLocalizedPath(lang, 'blog')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
             {t(lang, 'nav.blog')}
@@ -59,3 +66,28 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-section {
+    background: linear-gradient(180deg, #f7f7f9 0%, #f5f5f7 100%);
+  }
+  
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 50% at 80% 20%, rgba(255, 218, 185, 0.03) 0%, transparent 50%);
+  }
+  
+  .footer-brand {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .footer-links {
+    animation: fadeIn 0.8s ease-out 0.1s both;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>

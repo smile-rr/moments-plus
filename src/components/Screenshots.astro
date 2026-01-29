@@ -12,17 +12,23 @@ interface Props {
 const { screenshots } = Astro.props;
 ---
 
-<section class="py-32 px-4 md:px-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex gap-8 md:gap-12 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide justify-center">
-      {screenshots.slice(0, 5).map((screenshot) => (
-        <div class="flex-shrink-0 snap-center">
+<section class="screenshots-section py-32 px-4 md:px-8 relative overflow-hidden">
+  <!-- 柔和的背景渐变 -->
+  <div class="section-bg"></div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="screenshots-container flex gap-8 md:gap-12 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide justify-center">
+      {screenshots.slice(0, 5).map((screenshot, index) => (
+        <div 
+          class="screenshot-item flex-shrink-0 snap-center"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
           <img 
             src={screenshot.src} 
             alt={screenshot.alt}
             loading="lazy"
-            class="w-64 md:w-80 h-auto rounded-[32px]"
-            style="box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);"
+            class="w-64 md:w-80 h-auto rounded-[32px] transition-transform duration-500 hover:scale-[1.02]"
+            style="box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);"
           />
         </div>
       ))}
@@ -31,6 +37,33 @@ const { screenshots } = Astro.props;
 </section>
 
 <style>
+  .screenshots-section {
+    background: linear-gradient(180deg, #f8f6f4 0%, #fafafa 50%, #f8f6f4 100%);
+  }
+  
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 40% at 30% 20%, rgba(255, 218, 185, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 70% 80%, rgba(230, 230, 250, 0.05) 0%, transparent 40%);
+  }
+  
+  .screenshot-item {
+    animation: slideInUp 0.8s ease-out both;
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
