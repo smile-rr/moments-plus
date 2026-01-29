@@ -1,13 +1,12 @@
-# 本地开发使用 test-repo backend（无需认证）
-# 生产环境请改为 github backend
+# 生产环境使用 GitHub backend
 backend:
-  name: test-repo
+  name: github
+  repo: smile-rr/moments-plus
+  branch: release_v1.0
 
-# 如果要使用 GitHub backend，取消下面的注释并注释掉上面的 test-repo
+# 本地开发使用 test-repo backend（无需认证）
 # backend:
-#   name: github
-#   repo: yourusername/moments-plus-website
-#   branch: main
+#   name: test-repo
 
 # 本地开发时使用 - 运行 npx decap-server 启动本地后端
 # local_backend: true
