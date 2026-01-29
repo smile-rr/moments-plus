@@ -21,8 +21,8 @@ const { features } = Astro.props;
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
       {features.map((feature, index) => (
         <div 
-          class="feature-item text-center"
-          style={`animation-delay: ${index * 0.1}s`}
+          class="feature-item reveal-item text-center"
+          style={`transition-delay: ${index * 0.1}s`}
         >
           {feature.icon && (
             <div class="feature-icon text-5xl md:text-6xl mb-4">
@@ -54,24 +54,20 @@ const { features } = Astro.props;
       radial-gradient(ellipse 40% 30% at 80% 70%, rgba(230, 230, 250, 0.04) 0%, transparent 40%);
   }
   
-  .feature-item {
-    animation: fadeInUp 0.8s ease-out both;
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .feature-icon {
     animation: iconFloat 6s ease-in-out infinite;
-    animation-delay: inherit;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    display: inline-block;
   }
   
   @keyframes iconFloat {
@@ -83,3 +79,22 @@ const { features } = Astro.props;
     }
   }
 </style>
+
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, observerOptions);
+
+  const revealItems = document.querySelectorAll('.reveal-item');
+  revealItems.forEach(item => observer.observe(item));
+</script>
