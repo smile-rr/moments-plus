@@ -26,6 +26,20 @@ const homeCollection = defineCollection({
   }),
 });
 
+// 博客文章 Schema
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.date(),
+    author: z.string().optional(),
+    category: z.enum(['product', 'usecase', 'tips', 'update']).optional(),
+    image: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
 // 支持页面 Schema
 const supportCollection = defineCollection({
   type: 'content',
@@ -51,6 +65,7 @@ const legalCollection = defineCollection({
 
 export const collections = {
   home: homeCollection,
+  blog: blogCollection,
   support: supportCollection,
   privacy: legalCollection,
   terms: legalCollection,

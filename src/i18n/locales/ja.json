@@ -1,12 +1,13 @@
 {
   "nav": {
     "home": "ホーム",
+    "blog": "ブログ",
     "support": "サポート",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約"
   },
   "footer": {
-    "copyright": "© 2026 Moments+. All rights reserved.",
+    "copyright": "All rights reserved.",
     "links": {
       "privacy": "プライバシーポリシー",
       "terms": "利用規約",
@@ -18,6 +19,14 @@
     "backToHome": "ホームに戻る",
     "notFound": "ページが見つかりません",
     "notFoundMessage": "申し訳ございません。お探しのページは存在しません。"
+  },
+  "blog": {
+    "title": "ブログ",
+    "subtitle": "製品アップデート、ユースケース、ヒント",
+    "readMore": "続きを読む",
+    "backToBlog": "ブログに戻る",
+    "publishedOn": "公開日",
+    "category": "カテゴリー"
   },
   "language": {
     "en": "English",

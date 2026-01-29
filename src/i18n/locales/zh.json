@@ -1,12 +1,13 @@
 {
   "nav": {
     "home": "首页",
+    "blog": "博客",
     "support": "支持",
     "privacy": "隐私政策",
     "terms": "使用条款"
   },
   "footer": {
-    "copyright": "© 2026 时刻+. 保留所有权利。",
+    "copyright": "保留所有权利。",
     "links": {
       "privacy": "隐私政策",
       "terms": "使用条款",
@@ -18,6 +19,14 @@
     "backToHome": "返回首页",
     "notFound": "页面未找到",
     "notFoundMessage": "抱歉，您访问的页面不存在。"
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "产品更新、使用案例和技巧",
+    "readMore": "阅读更多",
+    "backToBlog": "返回博客",
+    "publishedOn": "发布于",
+    "category": "分类"
   },
   "language": {
     "en": "English",

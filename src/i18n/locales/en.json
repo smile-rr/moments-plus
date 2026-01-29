@@ -1,12 +1,13 @@
 {
   "nav": {
     "home": "Home",
+    "blog": "Blog",
     "support": "Support",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use"
   },
   "footer": {
-    "copyright": "© 2026 Moments+. All rights reserved.",
+    "copyright": "All rights reserved.",
     "links": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
@@ -18,6 +19,14 @@
     "backToHome": "Back to Home",
     "notFound": "Page Not Found",
     "notFoundMessage": "Sorry, the page you are looking for does not exist."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Product updates, use cases, and tips",
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog",
+    "publishedOn": "Published on",
+    "category": "Category"
   },
   "language": {
     "en": "English",
