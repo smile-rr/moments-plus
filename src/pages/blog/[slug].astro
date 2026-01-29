@@ -6,7 +6,7 @@ import { getBlogPosts, formatDate } from '../../utils/blog';
 export async function getStaticPaths() {
   const posts = await getBlogPosts(DEFAULT_LOCALE);
   return posts.map(post => ({
-    params: { slug: post.id.split('/')[1] },
+    params: { slug: post.id.split('/')[1].replace(/\.md$/, '') },
     props: { post },
   }));
 }
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const lang: Locale = DEFAULT_LOCALE;
-const currentPath = `/blog/${post.id.split('/')[1]}`;
+const currentPath = `/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`;
 ---
 
 <BaseLayout 
