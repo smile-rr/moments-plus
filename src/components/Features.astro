@@ -12,87 +12,27 @@ interface Props {
 const { features } = Astro.props;
 ---
 
-<section class="features">
-  {features.map((feature) => (
-    <div class="feature">
-      {feature.icon && <div class="feature-icon">{feature.icon}</div>}
-      <h3>{feature.title}</h3>
-      <p>{feature.description}</p>
-    </div>
-  ))}
+<section class="mt-16 md:mt-24 px-4 md:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Everything you need in one app
+    </h2>
+    <p class="text-lg md:text-xl mt-4 text-slate-600 max-w-2xl mx-auto">
+      Moments+ comes with powerful features to help you organize and cherish your memories.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+    {features.map((feature) => (
+      <div class="flex gap-4 items-start group">
+        <div class="mt-1 bg-black rounded-full p-2 w-10 h-10 shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform">
+          {feature.icon && <span class="text-2xl">{feature.icon}</span>}
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg md:text-xl mb-2">{feature.title}</h3>
+          <p class="text-slate-600 leading-relaxed">{feature.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
 </section>
-
-<style>
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .feature {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .feature:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  }
-
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-    line-height: 1;
-  }
-
-  .feature h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 600;
-  }
-
-  .feature p {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .features {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      padding: 1.5rem 1rem;
-    }
-
-    .feature {
-      padding: 1.25rem;
-    }
-
-    .feature-icon {
-      font-size: 1.75rem;
-    }
-
-    .feature h3 {
-      font-size: 0.95rem;
-    }
-
-    .feature p {
-      font-size: 0.85rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .features {
-      grid-template-columns: 1fr;
-      padding: 1rem;
-    }
-  }
-</style>

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +10,7 @@ export default defineConfig({
   // 如果你的 GitHub Pages 部署在根路径，可以完全移除 base
   // base: '/moments-plus-website',
   output: 'static',
-  integrations: [sitemap()],
+  integrations: [sitemap(), tailwind()],
   build: {
     assets: '_assets',
   },

@@ -12,91 +12,42 @@ interface Props {
 const { screenshots } = Astro.props;
 ---
 
-<section class="screenshots">
-  <div class="screenshot-scroll">
+<section class="mt-16 md:mt-24 px-4 md:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold">
+      See it in action
+    </h2>
+    <p class="text-lg mt-4 text-slate-600">
+      Beautiful interface designed for your memories
+    </p>
+  </div>
+  
+  <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
     {screenshots.map((screenshot) => (
-      <div class="screenshot-item">
-        <img 
-          src={screenshot.src} 
-          alt={screenshot.alt}
-          loading="lazy"
-        />
-        {screenshot.caption && <p>{screenshot.caption}</p>}
+      <div class="flex-shrink-0 snap-center">
+        <div class="group relative">
+          <img 
+            src={screenshot.src} 
+            alt={screenshot.alt}
+            loading="lazy"
+            class="w-56 md:w-64 h-auto rounded-3xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
+          />
+          {screenshot.caption && (
+            <p class="mt-4 text-center font-medium text-slate-700">{screenshot.caption}</p>
+          )}
+        </div>
       </div>
     ))}
   </div>
 </section>
 
 <style>
-  .screenshots {
-    padding: 2rem;
-    overflow: hidden;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .screenshot-scroll {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .screenshot-scroll::-webkit-scrollbar {
+  .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
-  .screenshot-item {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    text-align: center;
-  }
-
-  .screenshot-item img {
-    width: 200px;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s;
-  }
-
-  .screenshot-item:hover img {
-    transform: scale(1.02);
-  }
-
-  .screenshot-item p {
-    margin-top: 0.75rem;
-    font-size: 0.875rem;
-    color: #666;
-    font-weight: 500;
-  }
-
-  @media (max-width: 768px) {
-    .screenshots {
-      padding: 1.5rem 0;
-    }
-
-    .screenshot-scroll {
-      padding: 1rem;
-    }
-
-    .screenshot-item img {
-      width: 160px;
-      border-radius: 20px;
-    }
-
-    .screenshot-item p {
-      font-size: 0.8rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .screenshot-item img {
-      width: 140px;
-      border-radius: 18px;
-    }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>
