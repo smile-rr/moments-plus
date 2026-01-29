@@ -76,3 +76,4 @@ local_backend: true
 ### 翻译
 - footer.tagline: "Your moments, beautifully organized"
 - nav.download: "Get the App"
+
