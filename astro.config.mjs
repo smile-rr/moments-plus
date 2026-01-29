@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io',
+  site: 'https://moments-plus.com',
   output: 'static',
   integrations: [sitemap(), tailwind()],
   build: {
