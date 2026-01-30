@@ -6,7 +6,7 @@ hero:
   title: "时刻+"
   subtitle: "记住你的每个瞬间"
   ctaText: "获取应用"
-  ctaLink: "https://apps.apple.com/app/moments-plus"
+  ctaLink: "https://apps.apple.com/app/id6756813551"
 featuresSection:
   title: "你需要的一切"
   subtitle: "强大的功能帮助你整理和珍藏回忆"

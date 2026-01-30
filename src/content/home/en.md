@@ -6,7 +6,7 @@ hero:
   title: "Moments+"
   subtitle: "Your moments, remembered"
   ctaText: "Get the App"
-  ctaLink: "https://apps.apple.com/app/moments-plus"
+  ctaLink: "https://apps.apple.com/app/id6756813551"
 featuresSection:
   title: "Everything you need"
   subtitle: "Powerful features to help you organize and cherish your memories"
