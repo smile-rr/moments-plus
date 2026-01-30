@@ -33,4 +33,4 @@ lastUpdated: 2026-01-01
 
 ## お問い合わせ
 
-メール：[moments-plus@outlook.com](mailto:moments-plus@outlook.com)
+メール：[support@moments-plus.com](mailto:support@moments-plus.com)

@@ -1,7 +1,7 @@
 ---
 title: "支持"
 description: "有问题或反馈？我们很乐意听取您的意见！"
-email: "moments-plus@outlook.com"
+email: "support@moments-plus.com"
 faq:
   - question: "时刻+ 如何整理我的照片？"
     answer: "时刻+ 使用照片中嵌入的时间和位置数据，自动将它们分组为有意义的时刻。在相近时间和地点拍摄的照片会被归为一组。"
@@ -19,4 +19,4 @@ faq:
 
 有问题或反馈？我们很乐意听取您的意见！
 
-电子邮件：[moments-plus@outlook.com](mailto:moments-plus@outlook.com)
+电子邮件：[support@moments-plus.com](mailto:support@moments-plus.com)

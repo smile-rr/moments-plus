@@ -1,7 +1,7 @@
 ---
 title: "サポート"
 description: "ご質問やフィードバックがございましたら、お気軽にご連絡ください！"
-email: "moments-plus@outlook.com"
+email: "support@moments-plus.com"
 faq:
   - question: "Moments+はどのように写真を整理しますか？"
     answer: "Moments+は、写真に埋め込まれた時間と位置情報を使用して、意味のあるモーメントに自動的にグループ化します。同じ時間帯と場所で撮影された写真がまとめられます。"
@@ -19,4 +19,4 @@ faq:
 
 ご質問やフィードバックがございましたら、お気軽にご連絡ください！
 
-メール：[moments-plus@outlook.com](mailto:moments-plus@outlook.com)
+メール：[support@moments-plus.com](mailto:support@moments-plus.com)

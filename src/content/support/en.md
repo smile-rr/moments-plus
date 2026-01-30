@@ -1,7 +1,7 @@
 ---
 title: "Support"
 description: "Have questions or feedback? We'd love to hear from you!"
-email: "moments-plus@outlook.com"
+email: "support@moments-plus.com"
 faq:
   - question: "How does Moments+ organize my photos?"
     answer: "Moments+ uses the time and location data embedded in your photos to automatically group them into meaningful moments. Photos taken around the same time and place are grouped together."
@@ -19,4 +19,4 @@ faq:
 
 Have questions or feedback? We'd love to hear from you!
 
-Email: [moments-plus@outlook.com](mailto:moments-plus@outlook.com)
+Email: [support@moments-plus.com](mailto:support@moments-plus.com)

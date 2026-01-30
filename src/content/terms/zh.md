@@ -17,7 +17,7 @@ lastUpdated: 2026-01-01
 
 ## 联系方式
 
-电子邮件：[moments-plus@outlook.com](mailto:moments-plus@outlook.com)
+电子邮件：[support@moments-plus.com](mailto:support@moments-plus.com)
 
 ## Apple 条款
 
