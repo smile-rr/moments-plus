@@ -23,6 +23,7 @@
   },
   "common": {
     "brand": "Moments+",
+    "skipToContent": "Skip to content",
     "readMore": "Read More",
     "backToHome": "Back to Home",
     "notFound": "Page Not Found",
