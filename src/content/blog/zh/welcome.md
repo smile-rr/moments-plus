@@ -3,8 +3,8 @@ title: 欢迎使用 Moments+
 description: 了解 Moments+ 如何通过智能功能和精美设计帮助您整理和珍藏回忆。
 publishDate: 2026-01-15
 author: Moments+ 团队
-category: product
-draft: true
+category: updates
+draft: false
 ---
 我们很高兴向您介绍 Moments+，这是您的个人记忆伴侣，帮助您整理、发现和珍藏生活中的珍贵时刻。
 

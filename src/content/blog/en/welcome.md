@@ -3,10 +3,9 @@ title: "Welcome to Moments+"
 description: "Discover how Moments+ helps you organize and cherish your memories with intelligent features and beautiful design."
 publishDate: 2026-01-15
 author: "Moments+ Team"
-category: "product"
+category: "updates"
+draft: false
 ---
-
-# Welcome to Moments+
 
 We're excited to introduce Moments+, your personal memory companion that helps you organize, discover, and cherish your life's precious moments.
 

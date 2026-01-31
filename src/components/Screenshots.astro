@@ -120,16 +120,30 @@ const { screenshots } = Astro.props;
   }
   
   .indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .indicator::after {
+    content: '';
+    display: block;
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.15);
-    border: none;
-    cursor: pointer;
     transition: all 0.2s ease;
   }
   
-  .indicator.active {
+  .indicator.active::after {
     background: rgba(0, 0, 0, 0.4);
     width: 24px;
     border-radius: 4px;

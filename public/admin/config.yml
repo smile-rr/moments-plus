@@ -22,101 +22,113 @@ locale: "en"
 
 collections:
   - name: "home"
-    label: "主页"
+    label: "Home Page"
     folder: "src/content/home"
     create: false
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "副标题", name: "subtitle", widget: "string"}
-      - {label: "描述", name: "description", widget: "text"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
       - label: "Hero Section"
         name: "hero"
         widget: "object"
         fields:
-          - {label: "标题", name: "title", widget: "string"}
-          - {label: "副标题", name: "subtitle", widget: "string"}
-          - {label: "按钮文本", name: "ctaText", widget: "string"}
-          - {label: "按钮链接", name: "ctaLink", widget: "string"}
-      - label: "功能特性"
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "string"}
+          - {label: "Button Text", name: "ctaText", widget: "string"}
+          - {label: "Button Link", name: "ctaLink", widget: "string"}
+      - label: "Features"
         name: "features"
         widget: "list"
         fields:
-          - {label: "标题", name: "title", widget: "string"}
-          - {label: "描述", name: "description", widget: "text"}
-          - {label: "图标", name: "icon", widget: "string", required: false}
-      - label: "截图"
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Icon", name: "icon", widget: "string", required: false}
+      - label: "Screenshots"
         name: "screenshots"
         widget: "list"
         fields:
-          - {label: "图片路径", name: "src", widget: "string"}
-          - {label: "替代文本", name: "alt", widget: "string"}
-          - {label: "说明", name: "caption", widget: "string", required: false}
+          - {label: "Image Path", name: "src", widget: "string"}
+          - {label: "Alt Text", name: "alt", widget: "string"}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
 
   - name: "blog_en"
-    label: "博客 (English)"
+    label: "Blog (English)"
     folder: "src/content/blog/en"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "描述", name: "description", widget: "text"}
-      - {label: "发布日期", name: "publishDate", widget: "datetime"}
-      - {label: "作者", name: "author", widget: "string", required: false}
-      - {label: "分类", name: "category", widget: "select", options: ["product", "usecase", "tips", "update"], required: false}
-      - {label: "封面图", name: "image", widget: "image", required: false}
-      - {label: "草稿", name: "draft", widget: "boolean", default: false}
-      - {label: "内容", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "publishDate", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: [
+        {label: "Updates", value: "updates"},
+        {label: "Travel", value: "travel"},
+        {label: "Daily", value: "daily"},
+        {label: "Guides", value: "guides"},
+        {label: "Engineering", value: "engineering"}
+      ], required: false}
+      - {label: "Cover Image", name: "image", widget: "image", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "blog_zh"
-    label: "博客 (中文)"
+    label: "Blog (Chinese)"
     folder: "src/content/blog/zh"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "描述", name: "description", widget: "text"}
-      - {label: "发布日期", name: "publishDate", widget: "datetime"}
-      - {label: "作者", name: "author", widget: "string", required: false}
-      - {label: "分类", name: "category", widget: "select", options: ["product", "usecase", "tips", "update"], required: false}
-      - {label: "封面图", name: "image", widget: "image", required: false}
-      - {label: "草稿", name: "draft", widget: "boolean", default: false}
-      - {label: "内容", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "publishDate", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: [
+        {label: "Updates (产品动态)", value: "updates"},
+        {label: "Travel (旅行日记)", value: "travel"},
+        {label: "Daily (日常点滴)", value: "daily"},
+        {label: "Guides (使用指南)", value: "guides"},
+        {label: "Engineering (技术幕后)", value: "engineering"}
+      ], required: false}
+      - {label: "Cover Image", name: "image", widget: "image", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "support"
-    label: "支持页面"
+    label: "Support Page"
     folder: "src/content/support"
     create: false
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "描述", name: "description", widget: "text"}
-      - {label: "联系邮箱", name: "email", widget: "string"}
-      - label: "常见问题"
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Contact Email", name: "email", widget: "string"}
+      - label: "FAQ"
         name: "faq"
         widget: "list"
         required: false
         fields:
-          - {label: "问题", name: "question", widget: "string"}
-          - {label: "答案", name: "answer", widget: "text"}
-      - {label: "内容", name: "body", widget: "markdown", required: false}
+          - {label: "Question", name: "question", widget: "string"}
+          - {label: "Answer", name: "answer", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
 
   - name: "privacy"
-    label: "隐私政策"
+    label: "Privacy Policy"
     folder: "src/content/privacy"
     create: false
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "最后更新", name: "lastUpdated", widget: "datetime"}
-      - {label: "内容", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Last Updated", name: "lastUpdated", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "terms"
-    label: "使用条款"
+    label: "Terms of Service"
     folder: "src/content/terms"
     create: false
     slug: "{{slug}}"
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "最后更新", name: "lastUpdated", widget: "datetime"}
-      - {label: "内容", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Last Updated", name: "lastUpdated", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}

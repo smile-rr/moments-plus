@@ -40,3 +40,18 @@ export function formatDate(date: Date, lang: Locale): string {
 
   return date.toLocaleDateString(localeMap[lang], options);
 }
+
+export const BLOG_CATEGORIES = {
+  updates: { en: 'Updates', zh: '产品动态' },
+  travel: { en: 'Travel', zh: '旅行日记' },
+  daily: { en: 'Daily', zh: '日常点滴' },
+  guides: { en: 'Guides', zh: '使用指南' },
+  engineering: { en: 'Engineering', zh: '技术幕后' },
+} as const;
+
+export type BlogCategory = keyof typeof BLOG_CATEGORIES;
+
+export function getCategoryLabel(category: string, lang: Locale): string {
+  const cat = BLOG_CATEGORIES[category as BlogCategory];
+  return cat ? cat[lang] : category;
+}

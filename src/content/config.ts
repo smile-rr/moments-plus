@@ -46,7 +46,7 @@ const blogCollection = defineCollection({
     description: z.string(),
     publishDate: z.date(),
     author: z.string().optional(),
-    category: z.enum(['product', 'usecase', 'tips', 'update']).optional(),
+    category: z.enum(['updates', 'travel', 'daily', 'guides', 'engineering']).optional(),
     image: z.string().optional(),
     draft: z.boolean().default(false),
   }),
