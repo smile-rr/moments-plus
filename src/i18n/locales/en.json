@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "features": "Features",
-    "blog": "Blog",
+    "blog": "Journal",
     "support": "Support",
     "download": "Get the App",
     "privacy": "Privacy Policy",
@@ -11,6 +11,9 @@
   "footer": {
     "tagline": "Your moments, beautifully organized",
     "copyright": "All rights reserved.",
+    "product": "Product",
+    "legal": "Legal",
+    "connect": "Connect",
     "links": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
@@ -30,10 +33,10 @@
     }
   },
   "blog": {
-    "title": "Blog",
+    "title": "Journal",
     "subtitle": "Product updates, use cases, and tips",
     "readMore": "Read more",
-    "backToBlog": "Back to Blog",
+    "backToBlog": "Back to Journal",
     "publishedOn": "Published on",
     "category": "Category"
   },

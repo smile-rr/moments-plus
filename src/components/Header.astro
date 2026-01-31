@@ -12,7 +12,7 @@ interface Props {
 const { lang, currentPath } = Astro.props;
 ---
 
-<header style="background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.06);" class="sticky top-0 z-50">
+<header style="background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.06);" class="sticky top-0 z-[100]">
   <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
     <a href={getLocalizedPath(lang, '')} class="flex items-center gap-2.5 font-semibold hover:opacity-80 transition-opacity" style="color: #1d1d1f;">
       <Image 
@@ -26,23 +26,63 @@ const { lang, currentPath } = Astro.props;
       <span>Moments+</span>
     </a>
     
-    <div class="flex items-center gap-6">
-      <a href={getLocalizedPath(lang, 'blog')} class="text-sm hover:opacity-70 transition-opacity hidden md:block" style="color: #1d1d1f;">
-        {t(lang, 'nav.blog')}
-      </a>
-      <a href={getLocalizedPath(lang, 'support')} class="text-sm hover:opacity-70 transition-opacity hidden md:block" style="color: #1d1d1f;">
-        {t(lang, 'nav.support')}
-      </a>
+    <div class="flex items-center gap-4 md:gap-6">
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href={getLocalizedPath(lang, 'blog')} class="text-sm hover:opacity-70 transition-opacity" style="color: #424245;">
+          {t(lang, 'nav.blog')}
+        </a>
+        <a href={getLocalizedPath(lang, 'support')} class="text-sm hover:opacity-70 transition-opacity" style="color: #424245;">
+          {t(lang, 'nav.support')}
+        </a>
+      </div>
 
       <a 
         href="https://apps.apple.com/app/id6756813551" 
         target="_blank"
         rel="noopener noreferrer"
-        class="px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-all hover:scale-105"
+        class="px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all hover:scale-105"
         style="background: #1d1d1f; color: white;"
       >
         {t(lang, 'nav.download')}
       </a>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-toggle"
+        class="md:hidden p-2 -mr-2 text-gray-800 hover:bg-black/5 rounded-full transition-colors"
+        aria-label="Toggle Menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="8" x2="20" y2="8"></line>
+          <line x1="4" y1="16" x2="16" y2="16"></line>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div 
+    id="mobile-menu" 
+    class="md:hidden hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-black/5 shadow-lg"
+    style="background: rgba(255, 255, 255, 0.95);"
+  >
+    <div class="flex flex-col p-4 space-y-4">
+      <a href={getLocalizedPath(lang, 'blog')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: #1d1d1f;">
+        {t(lang, 'nav.blog')}
+      </a>
+      <a href={getLocalizedPath(lang, 'support')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: #1d1d1f;">
+        {t(lang, 'nav.support')}
+      </a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

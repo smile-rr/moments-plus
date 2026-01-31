@@ -5,6 +5,7 @@ import Features from '../../components/Features.astro';
 import Screenshots from '../../components/Screenshots.astro';
 import BlogPreview from '../../components/BlogPreview.astro';
 import Privacy from '../../components/Privacy.astro';
+import OfferBanner from '../../components/OfferBanner.astro';
 import { SUPPORTED_LOCALES, type Locale } from '../../i18n';
 import { getHomeContent } from '../../utils/content';
 
@@ -34,6 +35,7 @@ const currentPath = `/${lang}`;
   lang={lang}
   currentPath={currentPath}
 >
+  <OfferBanner specialOffer={data.specialOffer} />
   <Hero
     title={data.hero.title}
     subtitle={data.hero.subtitle}
