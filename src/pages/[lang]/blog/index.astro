@@ -32,37 +32,75 @@ const currentPath = `/${lang}/blog`;
       </p>
     </div>
 
-    <div class="space-y-8">
+    <!-- Category Filter Pills -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12" id="category-filters">
+      <button 
+        data-category="all" 
+        class="category-pill active px-4 py-2 rounded-full text-sm font-medium transition-all bg-blue-600 text-white"
+      >
+        {lang === 'zh' ? '全部' : 'All'}
+      </button>
+      <button 
+        data-category="updates" 
+        class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {getCategoryLabel('updates', lang)}
+      </button>
+      <button 
+        data-category="travel" 
+        class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {getCategoryLabel('travel', lang)}
+      </button>
+      <button 
+        data-category="daily" 
+        class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {getCategoryLabel('daily', lang)}
+      </button>
+      <button 
+        data-category="guides" 
+        class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {getCategoryLabel('guides', lang)}
+      </button>
+      <button 
+        data-category="engineering" 
+        class="category-pill px-4 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        {getCategoryLabel('engineering', lang)}
+      </button>
+    </div>
+
+    <div class="space-y-4" id="posts-container">
       {posts.map((post) => (
-        <article class="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-700">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-            <div>
-              {post.data.category && (
-                <span class="inline-block px-3 py-1 text-sm font-medium bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 rounded-full mb-2">
-                  {getCategoryLabel(post.data.category, lang)}
-                </span>
-              )}
-              <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <a href={`/${lang}/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`}>
+        <article class="post-card group bg-white dark:bg-gray-800/50 rounded-lg p-4 md:p-5 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-gray-100 dark:border-gray-700/50" data-category={post.data.category || 'uncategorized'}>
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                {post.data.category && (
+                  <span class="inline-block px-2 py-0.5 text-xs font-medium bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 rounded">
+                    {getCategoryLabel(post.data.category, lang)}
+                  </span>
+                )}
+                <time class="text-xs text-gray-400 dark:text-gray-500">
+                  {formatDate(post.data.publishDate, lang)}
+                </time>
+              </div>
+              <h2 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">
+                <a href={`/${lang}/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`} class="hover:underline">
                   {post.data.title}
                 </a>
               </h2>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
+                {post.data.description}
+              </p>
             </div>
-          </div>
-          
-          <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-            {post.data.description}
-          </p>
-          
-          <div class="flex items-center justify-between">
-            <time class="text-sm text-gray-500 dark:text-gray-500">
-              {formatDate(post.data.publishDate, lang)}
-            </time>
             <a 
               href={`/${lang}/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`}
-              class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium inline-flex items-center gap-2 transition-colors"
+              class="shrink-0 w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-blue-100 group-hover:text-blue-600 dark:group-hover:bg-blue-900/50 dark:group-hover:text-blue-400 transition-all"
+              aria-label={t(lang, 'blog.readMore')}
             >
-              {t(lang, 'blog.readMore')}
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
@@ -71,5 +109,49 @@ const currentPath = `/${lang}/blog`;
         </article>
       ))}
     </div>
+    
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-12">
+      <p class="text-gray-500 dark:text-gray-400">{lang === 'zh' ? '该分类暂无文章' : 'No posts in this category yet.'}</p>
+    </div>
   </div>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pills = document.querySelectorAll('.category-pill');
+    const posts = document.querySelectorAll('.post-card');
+    const emptyState = document.getElementById('empty-state');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const category = pill.dataset.category;
+        
+        // Update active state
+        pills.forEach(p => {
+          p.classList.remove('active', 'bg-blue-600', 'text-white');
+          p.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+        });
+        pill.classList.add('active', 'bg-blue-600', 'text-white');
+        pill.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+
+        // Filter posts
+        let visibleCount = 0;
+        posts.forEach(post => {
+          const postCategory = post.dataset.category;
+          if (category === 'all' || postCategory === category) {
+            post.style.display = '';
+            visibleCount++;
+          } else {
+            post.style.display = 'none';
+          }
+        });
+
+        // Show/hide empty state
+        if (emptyState) {
+          emptyState.classList.toggle('hidden', visibleCount > 0);
+        }
+      });
+    });
+  });
+</script>
