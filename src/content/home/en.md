@@ -7,6 +7,13 @@ hero:
   subtitle: "Your moments, remembered"
   ctaText: "Get the App"
   ctaLink: "https://apps.apple.com/app/id6756813551"
+specialOffer:
+  title: "Get 1 Year Free Premium"
+  description: "Unlock all features with code PH100FREE"
+  badgeText: "Limited Time Offer"
+  ctaText: "Redeem Now"
+  ctaLink: "https://apps.apple.com/redeem?ctx=offercodes&id=6756813551&code=PH100FREE"
+  expiryDate: "2026-02-15T23:59:59"
 featuresSection:
   title: "Everything you need"
   subtitle: "Powerful features to help you organize and cherish your memories"

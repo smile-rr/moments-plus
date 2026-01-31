@@ -7,6 +7,13 @@ hero:
   subtitle: "记住你的每个瞬间"
   ctaText: "获取应用"
   ctaLink: "https://apps.apple.com/app/id6756813551"
+specialOffer:
+  title: "免费领取 1 年高级会员"
+  description: "使用优惠码 PH100FREE 解锁所有功能"
+  badgeText: "限时优惠"
+  ctaText: "立即兑换"
+  ctaLink: "https://apps.apple.com/redeem?ctx=offercodes&id=6756813551&code=PH100FREE"
+  expiryDate: "2026-02-15T23:59:59"
 featuresSection:
   title: "你需要的一切"
   subtitle: "强大的功能帮助你整理和珍藏回忆"

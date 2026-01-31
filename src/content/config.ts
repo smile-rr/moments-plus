@@ -27,6 +27,14 @@ const homeCollection = defineCollection({
       alt: z.string(),
       caption: z.string().optional(),
     })),
+    specialOffer: z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      badgeText: z.string().optional(),
+      ctaText: z.string(),
+      ctaLink: z.string(),
+      expiryDate: z.string(),
+    }).optional(),
   }),
 });
 
