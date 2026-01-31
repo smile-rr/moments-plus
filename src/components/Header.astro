@@ -14,7 +14,7 @@ const { lang, currentPath } = Astro.props;
 
 <header style="background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.06);" class="sticky top-0 z-[100]">
   <nav class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-    <a href={getLocalizedPath(lang, '')} class="flex items-center gap-2.5 font-semibold hover:opacity-80 transition-opacity" style="color: #1d1d1f;">
+    <a href={getLocalizedPath(lang, '')} class="flex items-center gap-2.5 font-semibold hover:opacity-80 transition-opacity" style="color: var(--color-text);">
       <Image 
         src={AppIcon} 
         alt="Moments+" 
@@ -29,10 +29,10 @@ const { lang, currentPath } = Astro.props;
     <div class="flex items-center gap-4 md:gap-6">
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-6">
-        <a href={getLocalizedPath(lang, 'blog')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: #424245;">
+        <a href={getLocalizedPath(lang, 'blog')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: var(--color-text-secondary);">
           {t(lang, 'nav.blog')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: #424245;">
+        <a href={getLocalizedPath(lang, 'support')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: var(--color-text-secondary);">
           {t(lang, 'nav.support')}
         </a>
       </div>
@@ -42,7 +42,7 @@ const { lang, currentPath } = Astro.props;
         target="_blank"
         rel="noopener noreferrer"
         class="px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all hover:scale-105"
-        style="background: #1d1d1f; color: white;"
+        style="background: var(--color-button-bg); color: var(--color-button-text);"
       >
         {t(lang, 'nav.download')}
       </a>
@@ -68,10 +68,10 @@ const { lang, currentPath } = Astro.props;
     style="background: rgba(255, 255, 255, 0.95);"
   >
     <div class="flex flex-col p-4 space-y-4">
-      <a href={getLocalizedPath(lang, 'blog')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: #1d1d1f;">
+      <a href={getLocalizedPath(lang, 'blog')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: var(--color-text);">
         {t(lang, 'nav.blog')}
       </a>
-      <a href={getLocalizedPath(lang, 'support')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: #1d1d1f;">
+      <a href={getLocalizedPath(lang, 'support')} class="text-lg font-medium p-2 hover:bg-black/5 rounded-lg transition-colors" style="color: var(--color-text);">
         {t(lang, 'nav.support')}
       </a>
     </div>

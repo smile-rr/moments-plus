@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { DEFAULT_LOCALE, type Locale, t, getLocalizedPath } from '../../i18n';
-import { getBlogPosts, formatDate, getCategoryLabel } from '../../utils/blog';
+import BlogPostView from '../../components/views/BlogPostView.astro';
+import { DEFAULT_LOCALE } from '../../i18n';
+import { getBlogPosts } from '../../utils/blog';
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts(DEFAULT_LOCALE);
@@ -12,59 +12,6 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
-const lang: Locale = DEFAULT_LOCALE;
-const currentPath = `/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`;
 ---
 
-<BaseLayout 
-  title={post.data.title} 
-  description={post.data.description}
-  lang={lang}
-  currentPath={currentPath}
->
-  <article class="max-w-3xl mx-auto px-4 md:px-8 py-16">
-    <a 
-      href={getLocalizedPath(lang, 'blog')}
-      class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 mb-8 transition-colors"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-      </svg>
-      {t(lang, 'blog.backToBlog')}
-    </a>
-
-    <header class="mb-12">
-    <header class="mb-12">
-      {post.data.category && (
-        <span class="inline-block px-3 py-1 text-sm font-medium bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 rounded-full mb-4">
-          {getCategoryLabel(post.data.category, lang)}
-        </span>
-      )}
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-        {post.data.title}
-      </h1>
-      <div class="flex items-center gap-4 text-gray-600 dark:text-gray-400">
-        <time>{formatDate(post.data.publishDate, lang)}</time>
-        {post.data.author && (
-          <>
-            <span>•</span>
-            <span>{post.data.author}</span>
-          </>
-        )}
-      </div>
-    </header>
-
-    <div class="prose prose-lg dark:prose-invert max-w-none
-      prose-headings:text-gray-900 dark:prose-headings:text-white
-      prose-p:text-gray-700 dark:prose-p:text-gray-300
-      prose-a:text-blue-600 dark:prose-a:text-blue-400
-      prose-strong:text-gray-900 dark:prose-strong:text-white
-      prose-code:text-gray-900 dark:prose-code:text-white
-      prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800
-      [&>h1]:hidden
-    ">
-      <Content />
-    </div>
-  </article>
-</BaseLayout>
+<BlogPostView post={post} lang={DEFAULT_LOCALE} />

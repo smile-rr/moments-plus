@@ -30,20 +30,20 @@ const currentYear = new Date().getFullYear();
             densities={[1.5, 2]}
             style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);"
           />
-          <span class="font-semibold text-lg" style="color: #1d1d1f;">{t(lang, 'common.brand')}</span>
+          <span class="font-semibold text-lg" style="color: var(--color-text);">{t(lang, 'common.brand')}</span>
         </div>
-        <p class="text-sm" style="color: #86868b; line-height: 1.6;">
+        <p class="text-sm" style="color: var(--color-text-muted); line-height: 1.6;">
           {t(lang, 'footer.tagline')}
         </p>
       </div>
       
       <!-- Col 2: Product -->
       <div class="footer-col flex flex-col gap-3 text-sm">
-        <span class="font-semibold mb-1" style="color: #1d1d1f">{t(lang, 'footer.product')}</span>
-        <a href={getLocalizedPath(lang, 'blog')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
+        <span class="font-semibold mb-1" style="color: var(--color-text)">{t(lang, 'footer.product')}</span>
+        <a href={getLocalizedPath(lang, 'blog')} class="hover:opacity-70 transition-opacity" style="color: var(--color-text-muted);">
           {t(lang, 'nav.blog')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
+        <a href={getLocalizedPath(lang, 'support')} class="hover:opacity-70 transition-opacity" style="color: var(--color-text-muted);">
           {t(lang, 'nav.support')}
         </a>
         <a 
@@ -51,7 +51,7 @@ const currentYear = new Date().getFullYear();
           target="_blank"
           rel="noopener noreferrer"
           class="hover:opacity-70 transition-opacity"
-          style="color: #86868b;"
+          style="color: var(--color-text-muted);"
         >
           {t(lang, 'footer.links.download')}
         </a>
@@ -59,25 +59,25 @@ const currentYear = new Date().getFullYear();
 
       <!-- Col 3: Legal -->
       <div class="footer-col flex flex-col gap-3 text-sm">
-        <span class="font-semibold mb-1" style="color: #1d1d1f">{t(lang, 'footer.legal')}</span>
-        <a href={getLocalizedPath(lang, 'privacy')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
+        <span class="font-semibold mb-1" style="color: var(--color-text)">{t(lang, 'footer.legal')}</span>
+        <a href={getLocalizedPath(lang, 'privacy')} class="hover:opacity-70 transition-opacity" style="color: var(--color-text-muted);">
           {t(lang, 'footer.links.privacy')}
         </a>
-        <a href={getLocalizedPath(lang, 'terms')} class="hover:opacity-70 transition-opacity" style="color: #86868b;">
+        <a href={getLocalizedPath(lang, 'terms')} class="hover:opacity-70 transition-opacity" style="color: var(--color-text-muted);">
           {t(lang, 'footer.links.terms')}
         </a>
       </div>
       
       <!-- Col 4: Connect -->
       <div class="footer-col flex flex-col gap-4">
-        <span class="font-semibold text-sm mb-1" style="color: #1d1d1f">{t(lang, 'footer.connect')}</span>
+        <span class="font-semibold text-sm mb-1" style="color: var(--color-text)">{t(lang, 'footer.connect')}</span>
         <div class="flex gap-4">
           <a 
             href="https://www.instagram.com/qingran1211" 
             target="_blank" 
             rel="noopener noreferrer" 
             class="hover:opacity-70 transition-opacity"
-            style="color: #86868b;"
+            style="color: var(--color-text-muted);"
             aria-label="Instagram"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -91,7 +91,7 @@ const currentYear = new Date().getFullYear();
             target="_blank" 
             rel="noopener noreferrer" 
             class="hover:opacity-70 transition-opacity"
-            style="color: #86868b;"
+            style="color: var(--color-text-muted);"
             aria-label="X (formerly Twitter)"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -104,7 +104,7 @@ const currentYear = new Date().getFullYear();
             target="_blank" 
             rel="noopener noreferrer" 
             class="hover:opacity-70 transition-opacity"
-            style="color: #86868b;"
+            style="color: var(--color-text-muted);"
             aria-label="Facebook"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -120,7 +120,7 @@ const currentYear = new Date().getFullYear();
     </div>
     
     <div class="pt-8 border-t border-black/5 text-center">
-      <p class="text-sm" style="color: #86868b;">
+      <p class="text-sm" style="color: var(--color-text-muted);">
         © {currentYear} {t(lang, 'common.brand')}. {t(lang, 'footer.copyright')}
       </p>
     </div>

@@ -1,14 +1,26 @@
 :root {
-  /* Colors */
-  --color-primary: #007AFF;
-  --color-primary-hover: #0051D5;
+  /* === 文本颜色 === */
   --color-text: #1d1d1f;
   --color-text-secondary: #424245;
   --color-text-tertiary: #6e6e73;
   --color-text-muted: #86868b;
-  --color-background: #ffffff;
-  --color-background-gradient-start: #f8f9fa;
-  --color-background-gradient-end: #ffffff;
+
+  /* === 背景颜色 === */
+  --color-bg: #fafafa;
+  --color-bg-elevated: #ffffff;
+  --color-bg-section-start: #f7f7f9;
+  --color-bg-section-end: #f5f5f7;
+
+  /* === 主题色 (Apple Blue) === */
+  --color-primary: #0071e3;
+  --color-primary-rgb: 0, 113, 227;
+  --color-primary-hover: #0051D5;
+
+  /* === 按钮 === */
+  --color-button-bg: #1d1d1f;
+  --color-button-text: #ffffff;
+
+  /* === 边框和阴影 === */
   --color-border: rgba(0, 0, 0, 0.1);
   --color-border-light: rgba(0, 0, 0, 0.08);
   --color-shadow: rgba(0, 0, 0, 0.06);

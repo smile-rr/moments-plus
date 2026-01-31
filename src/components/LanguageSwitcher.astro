@@ -21,7 +21,8 @@ SUPPORTED_LOCALES.forEach(loc => {
   {SUPPORTED_LOCALES.map((loc) => (
     <a 
       href={getLocalizedPath(loc, pathWithoutLang)}
-      class={`text-sm transition-all hover:opacity-100 ${loc === currentLang ? 'opacity-100 font-medium text-[#1d1d1f]' : 'opacity-40 text-[#86868b] hover:opacity-60'}`}
+      class={`text-sm transition-all hover:opacity-100 ${loc === currentLang ? 'opacity-100 font-medium' : 'opacity-40 hover:opacity-60'}`}
+      style={loc === currentLang ? 'color: var(--color-text);' : 'color: var(--color-text-muted);'}
       hreflang={loc}
       aria-label={`Switch to ${getLocaleName(loc)}`}
     >

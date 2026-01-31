@@ -44,11 +44,11 @@ const lastUpdatedText = {
 >
   <article class="max-w-3xl mx-auto px-4 md:px-8 py-20">
     <header class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-semibold mb-4" style="color: #1d1d1f;">
+      <h1 class="text-4xl md:text-5xl font-semibold mb-4" style="color: var(--color-text);">
         {title}
       </h1>
       {lastUpdated && (
-        <p class="text-sm" style="color: #86868b;">
+        <p class="text-sm" style="color: var(--color-text-muted);">
           {lastUpdatedText[lang]}: {formatDate(lastUpdated, lang)}
         </p>
       )}
@@ -62,7 +62,7 @@ const lastUpdatedText = {
       prose-ul:my-4 prose-ul:ml-6
       prose-li:mb-2
       prose-a:no-underline hover:prose-a:underline
-    " style="color: #1d1d1f;">
+    " style="color: var(--color-text);">
       <slot />
     </div>
   </article>

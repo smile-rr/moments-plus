@@ -21,10 +21,10 @@ const { title, subtitle, appIcon } = Astro.props;
   <div class="floating-orb orb-3"></div>
   
   <div class="text-center max-w-5xl mx-auto relative z-10 mt-[-60px] lg:mt-[-100px]">
-    <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-semibold mb-6" style="color: #1d1d1f; line-height: 1.05; letter-spacing: -0.015em;">
+    <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-semibold mb-6" style="color: var(--color-text); line-height: 1.05; letter-spacing: -0.015em;">
       {title}
     </h1>
-    <p class="hero-subtitle text-xl md:text-2xl font-light" style="color: #6e6e73; line-height: 1.4;">
+    <p class="hero-subtitle text-xl md:text-2xl font-light" style="color: var(--color-text-tertiary); line-height: 1.4;">
       {subtitle}
     </p>
   </div>
