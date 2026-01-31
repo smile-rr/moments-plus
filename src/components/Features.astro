@@ -27,6 +27,7 @@ const cardColors = [
   
   <div class="max-w-6xl mx-auto relative z-10">
     <!-- Bento Grid Layout -->
+    <h2 class="sr-only">Features</h2>
     <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
       {features.map((feature, index) => {
         // 配置不同卡片的占据宽度：1、4卡占4列，2、3卡占2列
@@ -50,7 +51,7 @@ const cardColors = [
                 <h3 class="text-2xl font-semibold mb-3" style="color: #1d1d1f; letter-spacing: -0.02em;">
                   {feature.title}
                 </h3>
-                <p class="text-base leading-relaxed max-w-md" style="color: #424245;">
+                <p class="text-base leading-relaxed max-w-md" style="color: #1d1d1f;">
                   {feature.description}
                 </p>
               </div>

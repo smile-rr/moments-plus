@@ -29,10 +29,10 @@ const { lang, currentPath } = Astro.props;
     <div class="flex items-center gap-4 md:gap-6">
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-6">
-        <a href={getLocalizedPath(lang, 'blog')} class="text-sm hover:opacity-70 transition-opacity" style="color: #424245;">
+        <a href={getLocalizedPath(lang, 'blog')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: #424245;">
           {t(lang, 'nav.blog')}
         </a>
-        <a href={getLocalizedPath(lang, 'support')} class="text-sm hover:opacity-70 transition-opacity" style="color: #424245;">
+        <a href={getLocalizedPath(lang, 'support')} class="text-sm font-medium hover:opacity-70 transition-opacity p-2" style="color: #424245;">
           {t(lang, 'nav.support')}
         </a>
       </div>
