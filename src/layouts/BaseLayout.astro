@@ -8,12 +8,13 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
   lang: Locale;
   currentPath: string;
 }
 
-const { title, description, lang, currentPath } = Astro.props;
-const seoData = generateSEOData(title, description, lang, currentPath);
+const { title, description, keywords, lang, currentPath } = Astro.props;
+const seoData = generateSEOData(title, description, lang, currentPath, undefined, undefined, keywords);
 ---
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@ const seoData = generateSEOData(title, description, lang, currentPath);
     <!-- SEO Meta Tags -->
     <title>{seoData.title}</title>
     <meta name="description" content={seoData.description} />
+    <meta name="keywords" content={seoData.keywords} />
     <link rel="canonical" href={seoData.canonical} />
     
     <!-- Hreflang Tags -->
