@@ -4,6 +4,7 @@ import { t } from '../i18n';
 import { generateSEOData } from '../utils/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -52,8 +53,6 @@ const seoData = generateSEOData(title, description, lang, currentPath, undefined
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body style="background: var(--color-bg); color: var(--color-text);">
     <a 
