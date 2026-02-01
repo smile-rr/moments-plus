@@ -32,8 +32,7 @@ const currentPath = lang === 'en' ? '/blog' : `/${lang}/blog`;
     <div class="flex flex-wrap justify-center gap-2 mb-12" id="category-filters">
       <button 
         data-category="all" 
-        class="category-pill active px-4 py-2 rounded-full text-sm font-medium transition-all bg-blue-600 text-white"
-        style="background: var(--color-primary);"
+        class="category-pill active px-4 py-2 rounded-full text-sm font-medium transition-all"
       >
         {lang === 'zh' ? '全部' : 'All'}
       </button>
@@ -120,6 +119,17 @@ const currentPath = lang === 'en' ? '/blog' : `/${lang}/blog`;
   </div>
 </BaseLayout>
 
+<style>
+  .category-pill {
+    transition: all 0.2s ease;
+  }
+  
+  .category-pill.active {
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const pills = document.querySelectorAll('.category-pill');
@@ -132,21 +142,14 @@ const currentPath = lang === 'en' ? '/blog' : `/${lang}/blog`;
         
         // Update active state
         pills.forEach(p => {
-          p.classList.remove('active', 'text-white');
-          // Removing hardcoded color class since we override with style now? 
-          // Actually logic was class-based toggling. 
-          // The component template above sets inline style on the active one, but script assumes classes.
-          // Let's keep it simple: Reset all styles then apply active style.
-          
-          (p as HTMLElement).style.background = '';
-          (p as HTMLElement).style.color = ''; 
+          p.classList.remove('active');
+          // Reset utility classes for inactive state
           p.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
         });
         
+        // Set active state
         pill.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-        pill.classList.add('active', 'text-white');
-        (pill as HTMLElement).style.background = 'var(--color-primary)';
-        
+        pill.classList.add('active');
 
         // Filter posts
         let visibleCount = 0;
