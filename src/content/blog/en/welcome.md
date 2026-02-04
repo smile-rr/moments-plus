@@ -35,4 +35,4 @@ Experience your memories through a clean, intuitive interface designed specifica
 
 Download Moments+ from the App Store and start organizing your memories in a whole new way.
 
-[Download on the App Store gggg](https://apps.apple.com/app/6756813551)
+[Download on the App Store](https://apps.apple.com/app/6756813551)
