@@ -12,6 +12,10 @@ interface Props {
 
 const { lang, currentPath } = Astro.props;
 const currentYear = new Date().getFullYear();
+
+// ICP 备案号：仅 .cn 域名在页脚显示（替换为你的备案号）
+const ICP_NUMBER = '辽ICP备2026002697号';
+const ICP_LINK = 'https://beian.miit.gov.cn/';
 ---
 
 <footer class="footer-section relative overflow-hidden" style="border-top: 1px solid rgba(0, 0, 0, 0.04);">
@@ -119,13 +123,26 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
     
-    <div class="pt-8 border-t border-black/5 text-center">
+    <div class="pt-8 border-t border-black/5 text-center space-y-1">
       <p class="text-sm" style="color: var(--color-text-muted);">
         © {currentYear} {t(lang, 'common.brand')}. {t(lang, 'footer.copyright')}
+      </p>
+      <p id="footer-icp" class="text-sm hidden" style="color: var(--color-text-muted);" data-icp-number={ICP_NUMBER} data-icp-link={ICP_LINK}>
+        <a href={ICP_LINK} target="_blank" rel="noopener noreferrer nofollow" class="hover:underline">{ICP_NUMBER}</a>
       </p>
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    if (typeof window === 'undefined') return;
+    if (window.location.hostname.endsWith('.cn')) {
+      var el = document.getElementById('footer-icp');
+      if (el) el.classList.remove('hidden');
+    }
+  })();
+</script>
 
 <style>
   .footer-section {
