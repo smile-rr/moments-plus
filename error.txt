@@ -1,0 +1,43 @@
+6s
+25s
+Run cloudflare/wrangler-action@v3
+🔍 Checking for existing Wrangler installation
+📥 Installing Wrangler
+  /opt/hostedtoolcache/node/20.20.0/x64/bin/npm i wrangler@3.90.0
+  npm warn ERESOLVE overriding peer dependency
+  npm warn While resolving: @reduxjs/toolkit@1.9.7
+  npm warn Found: react@19.2.4
+  npm warn node_modules/react
+  npm warn   peer react@">=16.8.0" from @dnd-kit/accessibility@3.1.1
+  npm warn   node_modules/@dnd-kit/accessibility
+  npm warn     @dnd-kit/accessibility@"^3.1.1" from @dnd-kit/core@6.3.1
+  npm warn     node_modules/@dnd-kit/core
+  npm warn   57 more (@dnd-kit/core, @dnd-kit/modifiers, @dnd-kit/sortable, ...)
+  npm warn
+  npm warn Could not resolve dependency:
+  npm warn peerOptional react@"^16.9.0 || ^17.0.0 || ^18" from @reduxjs/toolkit@1.9.7
+  npm warn node_modules/@reduxjs/toolkit
+  npm warn   @reduxjs/toolkit@"^1.9.1" from decap-cms-core@3.10.0
+  npm warn   node_modules/decap-cms-core
+  npm warn
+  npm warn Conflicting peer dependency: react@18.3.1
+  npm warn node_modules/react
+  npm warn   peerOptional react@"^16.9.0 || ^17.0.0 || ^18" from @reduxjs/toolkit@1.9.7
+  npm warn   node_modules/@reduxjs/toolkit
+  npm warn     @reduxjs/toolkit@"^1.9.1" from decap-cms-core@3.10.0
+  npm warn     node_modules/decap-cms-core
+  npm warn ERESOLVE overriding peer dependency
+  npm warn While resolving: react-aria-menubutton@7.0.3
+  npm warn Found: react@19.2.4
+  npm warn node_modules/react
+  npm warn   peer react@">=16.8.0" from @dnd-kit/accessibility@3.1.1
+  npm warn   node_modules/@dnd-kit/accessibility
+  npm warn     @dnd-kit/accessibility@"^3.1.1" from @dnd-kit/core@6.3.1
+  npm warn     node_modules/@dnd-kit/core
+  npm warn   57 more (@dnd-kit/core, @dnd-kit/modifiers, @dnd-kit/sortable, ...)
+  npm warn
+  npm warn Could not resolve dependency:
+  npm warn peer react@"^16.3.0 || ^17.0.0" from react-aria-menubutton@7.0.3
+  npm warn node_modules/react-aria-menubutton
+Error: The process '/opt/hostedtoolcache/node/20.20.0/x64/bin/npx' failed with exit code 1
+Error: 🚨 Action failed
