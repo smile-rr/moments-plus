@@ -115,3 +115,18 @@ export function getLocaleName(locale: Locale): string {
   };
   return names[locale];
 }
+
+/** .com for English, .cn for Chinese (dual-domain setup) */
+const LOCALE_ORIGINS: Record<Locale, string> = {
+  en: 'https://www.moments-plus.com',
+  zh: 'https://www.moments-plus.cn',
+};
+
+/**
+ * 获取带域名的本地化完整 URL（用于 Footer 语言切换：.com 英文 / .cn 中文）
+ */
+export function getLocalizedUrl(locale: Locale, path: string = ''): string {
+  const pathPart = getLocalizedPath(locale, path);
+  const origin = LOCALE_ORIGINS[locale];
+  return origin + (pathPart === '/' ? '' : pathPart);
+}

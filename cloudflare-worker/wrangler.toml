@@ -1,0 +1,11 @@
+# Cloudflare Worker: geo redirect for moments-plus.com
+# Deploy: npx wrangler deploy (from this directory)
+# Then in Dashboard: Workers & Pages → Triggers → Add route: *moments-plus.com/* and *www.moments-plus.com/*
+
+name = "moments-plus-geo"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Replace with your Cloudflare Pages URL (e.g. https://your-project.pages.dev)
+PAGES_ORIGIN = "https://moments-plus.pages.dev"

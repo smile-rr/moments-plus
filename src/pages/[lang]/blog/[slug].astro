@@ -6,7 +6,7 @@ import { getBlogPosts } from '../../../utils/blog';
 export async function getStaticPaths() {
   const paths = [];
   
-  for (const lang of SUPPORTED_LOCALES.filter(l => l !== 'en')) {
+  for (const lang of SUPPORTED_LOCALES) {
     const posts = await getBlogPosts(lang);
     for (const post of posts) {
       paths.push({
