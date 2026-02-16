@@ -11,9 +11,8 @@ interface Props {
 
 const { post, lang } = Astro.props;
 const { Content } = await post.render();
-const currentPath = lang === 'en' 
-  ? `/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`
-  : `/${lang}/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`;
+const slug = post.id.split('/')[1].replace(/\.md$/, '');
+const currentPath = getLocalizedPath(lang, `blog/${slug}`);
 ---
 
 <BaseLayout 

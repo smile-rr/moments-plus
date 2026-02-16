@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { type Locale, t } from '../../i18n';
+import { type Locale, t, getLocalizedPath } from '../../i18n';
 import { getBlogPosts, formatDate, getCategoryLabel } from '../../utils/blog';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const posts = await getBlogPosts(lang);
-const currentPath = lang === 'en' ? '/blog' : `/${lang}/blog`;
+const currentPath = getLocalizedPath(lang, 'blog');
 ---
 
 <BaseLayout 
@@ -88,7 +88,7 @@ const currentPath = lang === 'en' ? '/blog' : `/${lang}/blog`;
               </div>
               
               <h2 class="text-xl font-semibold mb-2 transition-colors" style="color: var(--color-text);">
-                <a href={lang === 'en' ? `/blog/${post.id.split('/')[1].replace(/\.md$/, '')}` : `/${lang}/blog/${post.id.split('/')[1].replace(/\.md$/, '')}`} class="focus:outline-none">
+                <a href={getLocalizedPath(lang, `blog/${post.id.split('/')[1].replace(/\.md$/, '')}`)} class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true"></span>
                   {post.data.title}
                 </a>

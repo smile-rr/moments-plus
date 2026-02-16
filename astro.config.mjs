@@ -15,6 +15,14 @@ export default defineConfig({
     assets: '_assets',
   },
   vite: {
+    define: {
+      'import.meta.env.BUILD_ID': JSON.stringify(
+        process.env.COMMIT_REF ||
+        process.env.CI_COMMIT_SHA ||
+        process.env.GITHUB_SHA ||
+        `build-${Date.now()}`
+      ),
+    },
     server: {
       fs: {
         strict: false,

@@ -24,6 +24,7 @@ const seoData = generateSEOData(title, description, lang, currentPath, undefined
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="build-id" content={import.meta.env.BUILD_ID ?? ''} />
     
     <!-- SEO Meta Tags -->
     <title>{seoData.title}</title>
