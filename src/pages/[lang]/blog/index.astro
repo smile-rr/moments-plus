@@ -1,11 +1,13 @@
 ---
 import BlogIndexView from '../../../components/views/BlogIndexView.astro';
-import { SUPPORTED_LOCALES, type Locale } from '../../../i18n';
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n';
 
 export async function getStaticPaths() {
-  return SUPPORTED_LOCALES.map((lang) => ({
-    params: { lang },
-  }));
+  return SUPPORTED_LOCALES
+    .filter((l) => l !== DEFAULT_LOCALE)
+    .map((lang) => ({
+      params: { lang },
+    }));
 }
 
 const { lang } = Astro.params as { lang: Locale };

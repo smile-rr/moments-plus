@@ -1,5 +1,5 @@
 ---
-import { SUPPORTED_LOCALES, type Locale, getLocaleName, getLocalizedUrl } from '../i18n';
+import { SUPPORTED_LOCALES, type Locale, getLocaleName, getLocalizedPath } from '../i18n';
 
 interface Props {
   currentLang: Locale;
@@ -8,7 +8,7 @@ interface Props {
 
 const { currentLang, currentPath } = Astro.props;
 
-// 从当前路径中移除语言前缀，用于构建切换后的 path
+// 从当前路径中移除语言前缀；切换语言时保持当前域名（.com 仍在 .com，.cn 仍在 .cn）
 let pathWithoutLang = currentPath;
 SUPPORTED_LOCALES.forEach(loc => {
   if (currentPath.startsWith(`/${loc}`)) {
@@ -20,7 +20,7 @@ SUPPORTED_LOCALES.forEach(loc => {
 <div class="flex items-center gap-3">
   {SUPPORTED_LOCALES.map((loc) => (
     <a 
-      href={getLocalizedUrl(loc, pathWithoutLang)}
+      href={getLocalizedPath(loc, pathWithoutLang)}
       class={`text-sm transition-all hover:opacity-100 ${loc === currentLang ? 'opacity-100 font-medium' : 'opacity-40 hover:opacity-60'}`}
       style={loc === currentLang ? 'color: var(--color-text);' : 'color: var(--color-text-muted);'}
       hreflang={loc}

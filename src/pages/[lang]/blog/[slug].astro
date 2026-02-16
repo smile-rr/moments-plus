@@ -1,12 +1,12 @@
 ---
 import BlogPostView from '../../../components/views/BlogPostView.astro';
-import { SUPPORTED_LOCALES, type Locale } from '../../../i18n';
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, type Locale } from '../../../i18n';
 import { getBlogPosts } from '../../../utils/blog';
 
 export async function getStaticPaths() {
   const paths = [];
-  
-  for (const lang of SUPPORTED_LOCALES) {
+
+  for (const lang of SUPPORTED_LOCALES.filter((l) => l !== DEFAULT_LOCALE)) {
     const posts = await getBlogPosts(lang);
     for (const post of posts) {
       paths.push({

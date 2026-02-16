@@ -5,7 +5,10 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://moments-plus.com',
+  site:
+    process.env.PUBLIC_DEFAULT_LOCALE === 'zh'
+      ? 'https://www.moments-plus.cn'
+      : 'https://moments-plus.com',
   output: 'static',
   integrations: [sitemap(), tailwind()],
   build: {

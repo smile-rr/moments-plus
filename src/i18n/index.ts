@@ -4,7 +4,8 @@ import zhTranslations from './locales/zh.json';
 export const SUPPORTED_LOCALES = ['en', 'zh'] as const;
 export type Locale = typeof SUPPORTED_LOCALES[number];
 
-export const DEFAULT_LOCALE: Locale = 'en';
+export const DEFAULT_LOCALE: Locale =
+  (import.meta.env.PUBLIC_DEFAULT_LOCALE as Locale) || 'en';
 
 const translations = {
   en: enTranslations,
@@ -30,20 +31,15 @@ export function t(locale: Locale, key: string): string {
 }
 
 /**
- * 获取本地化路径
+ * 获取本地化路径：默认语言用根路径，非默认语言用 /lang/ 前缀
  */
 export function getLocalizedPath(locale: Locale, path: string = ''): string {
-  // 移除开头的斜杠
   const cleanPath = path.replace(/^\//, '');
-  // 移除语言前缀（如果存在）
-  const pathWithoutLocale = cleanPath.replace(/^(en|zh)\//, '');
+  const pathWithoutLocale = cleanPath.replace(/^(en|zh)(\/|$)/, '');
 
-  // 英文使用根路径，其他语言使用语言前缀
   if (locale === DEFAULT_LOCALE) {
     return `/${pathWithoutLocale}`.replace(/\/$/, '') || '/';
   }
-
-  // 构建新路径
   return `/${locale}/${pathWithoutLocale}`.replace(/\/$/, '') || `/${locale}`;
 }
 
@@ -54,12 +50,10 @@ export function getLocaleFromUrl(url: URL): Locale {
   const segments = url.pathname.split('/').filter(Boolean);
   const firstSegment = segments[0];
 
-  // 检查第一个路径段是否是支持的语言（排除默认语言）
-  if (firstSegment && SUPPORTED_LOCALES.includes(firstSegment as Locale) && firstSegment !== DEFAULT_LOCALE) {
+  if (firstSegment && SUPPORTED_LOCALES.includes(firstSegment as Locale)) {
     return firstSegment as Locale;
   }
 
-  // 如果没有语言前缀，返回默认语言
   return DEFAULT_LOCALE;
 }
 
@@ -116,17 +110,3 @@ export function getLocaleName(locale: Locale): string {
   return names[locale];
 }
 
-/** .com for English, .cn for Chinese (dual-domain setup) */
-const LOCALE_ORIGINS: Record<Locale, string> = {
-  en: 'https://www.moments-plus.com',
-  zh: 'https://www.moments-plus.cn',
-};
-
-/**
- * 获取带域名的本地化完整 URL（用于 Footer 语言切换：.com 英文 / .cn 中文）
- */
-export function getLocalizedUrl(locale: Locale, path: string = ''): string {
-  const pathPart = getLocalizedPath(locale, path);
-  const origin = LOCALE_ORIGINS[locale];
-  return origin + (pathPart === '/' ? '' : pathPart);
-}

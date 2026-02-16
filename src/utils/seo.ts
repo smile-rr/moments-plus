@@ -1,5 +1,10 @@
 import type { Locale } from '../i18n';
-import { getAllLocalePaths } from '../i18n';
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, getLocalizedPath } from '../i18n';
+
+const SITE_URLS: Record<Locale, string> = {
+  en: 'https://moments-plus.com',
+  zh: 'https://www.moments-plus.cn',
+};
 
 export interface SEOData {
   title: string;
@@ -35,23 +40,21 @@ export function generateSEOData(
   description: string,
   locale: Locale,
   currentPath: string,
-  siteUrl: string = 'https://moments-plus.com',
+  siteUrl: string = SITE_URLS[DEFAULT_LOCALE],
   image?: string,
   keywords: string = DEFAULT_KEYWORDS
 ): SEOData {
   const canonical = `${siteUrl}${currentPath}`;
 
-  // 生成所有语言的 hreflang 标签
-  const localePaths = getAllLocalePaths(currentPath);
-  const alternates = Object.entries(localePaths).map(([lang, path]) => ({
+  // Cross-domain hreflang: each locale points to its domain
+  const alternates = SUPPORTED_LOCALES.map((lang) => ({
     hreflang: lang,
-    href: `${siteUrl}${path}`,
+    href: `${SITE_URLS[lang]}${getLocalizedPath(lang, currentPath)}`,
   }));
 
-  // 添加 x-default
   alternates.push({
     hreflang: 'x-default',
-    href: `${siteUrl}/en`,
+    href: `${SITE_URLS.en}${getLocalizedPath('en', currentPath)}`,
   });
 
   return {
