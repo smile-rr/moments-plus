@@ -38,7 +38,9 @@ const { lang, currentPath } = Astro.props;
       </div>
 
       <a 
-        href="https://apps.apple.com/app/id6756813551" 
+        href={lang === 'zh' 
+          ? 'https://apps.apple.com/cn/app/时刻/id6756813551' 
+          : 'https://apps.apple.com/app/id6756813551'} 
         target="_blank"
         rel="noopener noreferrer"
         class="px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all hover:scale-105"

@@ -51,7 +51,9 @@ const ICP_LINK = 'https://beian.miit.gov.cn/';
           {t(lang, 'nav.support')}
         </a>
         <a 
-          href="https://apps.apple.com/app/id6756813551" 
+          href={lang === 'zh' 
+            ? 'https://apps.apple.com/cn/app/%E6%97%B6%E5%88%BB/id6756813551' 
+            : 'https://apps.apple.com/app/id6756813551'} 
           target="_blank"
           rel="noopener noreferrer"
           class="hover:opacity-70 transition-opacity"
@@ -75,47 +77,63 @@ const ICP_LINK = 'https://beian.miit.gov.cn/';
       <!-- Col 4: Connect -->
       <div class="footer-col flex flex-col gap-4">
         <span class="font-semibold text-sm mb-1" style="color: var(--color-text)">{t(lang, 'footer.connect')}</span>
-        <div class="flex gap-4">
-          <a 
-            href="https://www.instagram.com/qingran1211" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="hover:opacity-70 transition-opacity"
-            style="color: var(--color-text-muted);"
-            aria-label="Instagram"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a 
-            href="https://x.com/qingran1211" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="hover:opacity-70 transition-opacity"
-            style="color: var(--color-text-muted);"
-            aria-label="X (formerly Twitter)"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-            </svg>
-          </a>
-          <a 
-            href="https://www.facebook.com/radon.li.7/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="hover:opacity-70 transition-opacity"
-            style="color: var(--color-text-muted);"
-            aria-label="Facebook"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-            </svg>
-          </a>
-        </div>
+        <!-- For zh, show Xiaohongshu account; for others, keep global socials -->
+        {lang === 'zh' ? (
+          <div class="flex flex-col gap-2 text-sm">
+            <a 
+              href="https://www.xiaohongshu.com/user/profile/66a5b8f8000000001d03316e" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="hover:opacity-70 transition-opacity"
+              style="color: var(--color-text-muted);"
+              aria-label="Xiaohongshu SmileRR"
+            >
+              小红书
+            </a>
+          </div>
+        ) : (
+          <div class="flex gap-4">
+            <a 
+              href="https://www.instagram.com/qingran1211" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="hover:opacity-70 transition-opacity"
+              style="color: var(--color-text-muted);"
+              aria-label="Instagram"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a 
+              href="https://x.com/qingran1211" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="hover:opacity-70 transition-opacity"
+              style="color: var(--color-text-muted);"
+              aria-label="X (formerly Twitter)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a 
+              href="https://www.facebook.com/radon.li.7/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="hover:opacity-70 transition-opacity"
+              style="color: var(--color-text-muted);"
+              aria-label="Facebook"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        )}
 
         <!-- Language switcher commented out; re-enable when needed
         <div>
